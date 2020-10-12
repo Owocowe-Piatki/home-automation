@@ -9,9 +9,13 @@ It will consit of a mqtt broker, connected to a central hub subscribing and publ
 ### Prepare your fork
 1. Fork this repository to your own github account.
 2. Clone your fork to you computer
+   ```sh
+   git clone git@github.com:<yourname>/home-automation.git
+   ```
 3. Add this repository as upstream
    ```sh
-    git remote add upstream git@github.com:rimmaciej/home-automation
+   cd home-automation
+   git remote add upstream git@github.com:owocowe-piatki/home-automation
    ```
 
 ### To update your fork to the most recent one, run (in your main branch):
