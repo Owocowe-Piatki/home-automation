@@ -3,31 +3,31 @@ name: Backend
 on: [push, pull_request]
 
 defaults:
-  run:
-    working-directory: backend
+    run:
+        working-directory: backend
 
 jobs:
-  tests:
-    name: Tests
-    runs-on: ubuntu-latest
+    tests:
+        name: Tests
+        runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-python@v2
+              with:
+                  python-version: 3.8
 
-      - name: Setup poetry
-        uses: abatilo/actions-poetry@v2.0.0
+            - name: Setup poetry
+              uses: abatilo/actions-poetry@v2.0.0
 
-      - name: Install requirements
-        run: poetry export --dev -f requirements.txt -o requirements.txt && pip install -r requirements.txt
+            - name: Install requirements
+              run: poetry export --dev -f requirements.txt -o requirements.txt && pip install -r requirements.txt
 
-      - name: Run flake8 checks
-        run: flake8 . --max-line-length=120
+            - name: Run flake8 checks
+              run: flake8 . --max-line-length=120
 
-      - name: Run isort
-        run: isort --check-only --recursive .
+            - name: Run isort
+              run: isort --check-only --recursive .
 
-      - name: Run tests
-        run: python manage.py test
+            - name: Run tests
+              run: python manage.py test
