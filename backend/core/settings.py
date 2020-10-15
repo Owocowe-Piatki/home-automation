@@ -48,6 +48,7 @@ MEDIA_ROOT = BASE_DIR / "media_files"
 # Application definitions
 INSTALLED_APPS = [
     "django.contrib.admin",
+    "django.contrib.admindocs",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
