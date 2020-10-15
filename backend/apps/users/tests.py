@@ -1,7 +1,6 @@
 from datetime import date, datetime
 
 import pytest
-
 from django.db.utils import IntegrityError
 from django.test import TestCase
 

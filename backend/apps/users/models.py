@@ -1,7 +1,6 @@
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import Optional
 
-from django.conf import settings
 from django.contrib.auth.models import (
     AbstractBaseUser,
     Group,
