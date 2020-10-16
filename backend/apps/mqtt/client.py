@@ -1,4 +1,3 @@
-import json
 import logging
 
 import paho.mqtt.client as mqtt
@@ -37,7 +36,7 @@ def on_disconnect(client, userdata, rc):
     :param userdata: user data passed when creating a client
     :param rc: return code
     """
-    logger.info(f"MQTT Disconnected")
+    logger.info("MQTT Disconnected")
 
 
 def on_message(client, userdata, msg):
