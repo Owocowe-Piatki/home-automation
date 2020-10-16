@@ -1,4 +1,5 @@
 import logging
+import os
 
 from django.apps import AppConfig
 
@@ -12,5 +13,5 @@ class MqttConfig(AppConfig):
     verbose_name = "MQTT handler"
 
     def ready(self):
+        client.loop_stop()
         client.loop_start()
-        logger.info("MQTT client initialized")
