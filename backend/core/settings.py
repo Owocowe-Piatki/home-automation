@@ -45,6 +45,12 @@ STATIC_ROOT = BASE_DIR / "static_files"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media_files"
 
+
+# MQTT Config
+MQTT_BROKER_URL = "localhost"
+MQTT_BROKER_PORT = 1883
+MQTT_TOPIC = "home"
+
 # Application definitions
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -58,6 +64,7 @@ INSTALLED_APPS = [
     "webpack_loader",
     # internals
     "apps.users",
+    "apps.mqtt",
 ]
 
 
@@ -91,6 +98,18 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
+
+# Logging - https://docs.djangoproject.com/en/3.0/topics/logging/
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {"console": {"level": "DEBUG", "class": "logging.StreamHandler",}},
+    "loggers": {
+        "django": {"handlers": ["console"], "level": "INFO", "propagate": False},
+        "apps": {"handlers": ["console"], "level": "DEBUG", "propagate": False},
+        "": {"handlers": ["console"], "level": "INFO"},
+    },
+}
 
 # Middlewares - https://docs.djangoproject.com/en/3.0/topics/http/middleware/
 MIDDLEWARE = [
