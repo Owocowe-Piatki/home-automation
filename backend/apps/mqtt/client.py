@@ -8,7 +8,9 @@ from .signals import mqtt_publish, mqtt_receive
 logger = logging.getLogger(__name__)
 
 client = mqtt.Client()
-client.connect(settings.MQTT_BROKER_URL, settings.MQTT_BROKER_PORT, 60)
+
+if not settings.TEST_MODE:
+    client.connect(settings.MQTT_BROKER_URL, settings.MQTT_BROKER_PORT, 60)
 
 
 def on_connect(client, userdata, flags, rc):

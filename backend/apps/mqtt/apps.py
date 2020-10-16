@@ -1,6 +1,7 @@
 import logging
 
 from django.apps import AppConfig
+from django.conf import settings
 
 from .client import client
 
@@ -12,5 +13,6 @@ class MqttConfig(AppConfig):
     verbose_name = "MQTT handler"
 
     def ready(self):
-        client.loop_stop()
-        client.loop_start()
+        if not settings.TEST_MODE:
+            client.loop_stop()
+            client.loop_start()
