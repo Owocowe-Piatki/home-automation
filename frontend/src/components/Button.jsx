@@ -7,7 +7,9 @@ const Button = styled.a`
 
   color: ${p => p.theme.text};
 
-  display: inline-block;
+  isplay: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 5px;
   padding: 4px;
   margin: 0.5rem 1rem;
