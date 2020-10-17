@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ThemeContext } from 'Root/theme';
 import Gitref from 'Components/Gitref';
 import { ImGithub } from 'react-icons/im';
 const AppWrapper = styled.div`

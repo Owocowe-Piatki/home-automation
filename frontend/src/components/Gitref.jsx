@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styled from 'styled-components';
 
 const Gitref = styled.a`
@@ -14,8 +14,8 @@ const Gitref = styled.a`
   text-decoration: none;
   font-family: sans-serif;
   font-size: large;
-`
+`;
 
 
 
-export default Gitref
+export default Gitref;
