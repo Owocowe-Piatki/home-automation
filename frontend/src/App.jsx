@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ThemeContext } from 'Root/theme';
-import { FaReact } from 'react-icons/fa';
-
+import Gitref from 'Components/Gitref';
+import { ImGithub } from 'react-icons/im';
 const AppWrapper = styled.div`
 	width: 100%;
 	height: 100%;
@@ -17,28 +17,17 @@ const ContentWrapper = styled.div`
 	text-align: center;
 `;
 
-const Logo = styled.div`
-	font-size: 4em;
 
-	& svg {
-		font-size: 6em;
-	}
-`;
 
 const App = () => {
-	const [toggleTheme, isDark] = React.useContext(ThemeContext);
+
 
 	return (
 		<AppWrapper>
 			<ContentWrapper>
-				<Logo>
-					<FaReact />
-					<br />
-					React template
-				</Logo>
-				<button onClick={() => toggleTheme()}>
-					Switch to {isDark ? 'light' : 'dark'} theme
-				</button>
+			 
+			<Gitref href="https://github.com/owocowe-piatki/home-automation"> <ImGithub/> home-automation</Gitref> 
+
 			</ContentWrapper>
 		</AppWrapper>
 	);
