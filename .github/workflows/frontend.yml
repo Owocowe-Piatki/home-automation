@@ -18,4 +18,13 @@ jobs:
               run: yarn
 
             - name: Run ESLint
-              run: yarn run eslint:github-action
+              run: yarn run lint:js
+
+            - name: Run stylelint
+              run: yarn run lint:css
+
+            - name: Run jest
+              run: yarn run test
+
+            - name: Run prettier
+              run: yarn run prettier
