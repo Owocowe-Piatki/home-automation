@@ -56,6 +56,7 @@ MQTT_TOPIC = "home"
 
 # Application definitions
 INSTALLED_APPS = [
+    "django.contrib.admin",
     "django.contrib.admindocs",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -65,9 +66,8 @@ INSTALLED_APPS = [
     # libraries
     "webpack_loader",
     "apps.users",
-    "django.contrib.admin",
+    "apps.mqtt",
  ]
-# "apps.mqtt",
 # Database - https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 # fmt: off
 DATABASES = {
