@@ -19,6 +19,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # frontend template path
     path("", TemplateView.as_view(template_name="frontend.html"), name="frontend"),
+    # user authentication
+    path("users/", include('apps.users.urls')),
 ]
 
 # Enable media and static files in debug mode

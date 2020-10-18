@@ -26,6 +26,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField("first name", max_length=150, blank=True)
     last_name = models.CharField("last name", max_length=150, blank=True)
 
+    is_active = models.BooleanField(
+        "active", default=True, help_text="Designates if this user should be treated as active."
+    )
+
     # Configuration
     EMAIL_FIELDS = "email"
     USERNAME_FIELD = "email"
@@ -42,7 +46,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     @property
     def is_staff(self):
         return self.is_superuser
-
+    
     def get_age(self) -> Optional[int]:
         """
         Return users age in years

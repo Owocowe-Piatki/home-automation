@@ -56,7 +56,6 @@ MQTT_TOPIC = "home"
 
 # Application definitions
 INSTALLED_APPS = [
-    "django.contrib.admin",
     "django.contrib.admindocs",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -65,12 +64,11 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # libraries
     "webpack_loader",
-    # internals
     "apps.users",
+    "django.contrib.admin", # because of overriding templates - admin need to be under users
     "apps.mqtt",
-]
-
-
+ ]
+    
 # Database - https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 # fmt: off
 DATABASES = {
@@ -113,6 +111,12 @@ LOGGING = {
         "": {"handlers": ["console"], "level": "INFO"},
     },
 }
+
+# User after/before authentication config
+
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/users/login'
+LOGOUT_REDIRECT_URL = '/users/login'
 
 # Middlewares - https://docs.djangoproject.com/en/3.0/topics/http/middleware/
 MIDDLEWARE = [
