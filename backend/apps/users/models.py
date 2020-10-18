@@ -46,7 +46,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     @property
     def is_staff(self):
         return self.is_superuser
-    
+
     def get_age(self) -> Optional[int]:
         """
         Return users age in years

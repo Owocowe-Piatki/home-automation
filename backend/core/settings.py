@@ -65,10 +65,9 @@ INSTALLED_APPS = [
     # libraries
     "webpack_loader",
     "apps.users",
-    "django.contrib.admin", # because of overriding templates - admin need to be under users
-    "apps.mqtt",
+    "django.contrib.admin",
  ]
-    
+# "apps.mqtt",
 # Database - https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 # fmt: off
 DATABASES = {
