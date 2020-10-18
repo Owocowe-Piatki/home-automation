@@ -9,21 +9,6 @@
 	</head>
 	<body>
 		<div class="container">
-			<!--
-			<div class="navbar">
-				<div class="navbar__left">
-					<div class="navbar__logo navbar__item">Home Automation Login</div>
-				</div>
-				<div class="navbar__right">
-					<ul class="navbar__menu">
-					{% if user.is_authenticated %}
-						<li class="navbar__item">Logged as: {{ user.get_username }}</li>
-						<li class="navbar__item"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li> 
-					{% endif %} 
-					</ul>
-				</div>	
-			</div>
-			-->
 			<div class="content">
 				{% block content %}
 
