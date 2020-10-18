@@ -24,7 +24,7 @@ jobs:
               run: yarn run lint:css
 
             - name: Run jest
-              run: yarn run test
+              run: yarn run test -- --coverage --updateSnapshot
 
             - name: Run prettier
               run: yarn run prettier
