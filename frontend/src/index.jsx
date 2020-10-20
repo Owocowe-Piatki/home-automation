@@ -1,28 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { ThemeContext, useTheme } from './theme';
+import { GlobalStyle } from './global';
 
 import App from './App';
-
-// CSS Reset + border-box
-const GlobalStyle = createGlobalStyle`
-	html, body, #root {
-		height: 100%;
-		max-width: 100vw;
-		margin: 0;
-		box-sizing: border-box;
-	}
-
-	*, *:before, &:after {
-		box-sizing: inherit;
-	}
-
-    body {
-		background: ${(p) => p.theme.background};
-		color: ${(p) => p.theme.text};
-	}
-`;
 
 const Root = () => {
 	const [theme, toggleTheme, isDark] = useTheme();

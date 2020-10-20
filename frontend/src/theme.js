@@ -3,11 +3,21 @@ import React from 'react';
 const lightTheme = {
 	text: '#000',
 	background: '#E5E5E5',
+	mobile: '576px',
+	colors: {
+		accent: '#000',
+		error: 'red',
+	},
 };
 
 const darkTheme = {
 	text: '#FFF',
 	background: '#2F2F2F',
+	mobile: '576px',
+	colors: {
+		accent: '#2F2F2F',
+		error: 'red',
+	},
 };
 
 // Create react context for theme info

@@ -1,15 +1,17 @@
-import React from 'react';
 import styled from 'styled-components';
-import Button from 'Components/Button';
-import { ImGithub } from 'react-icons/im';
-import { AiFillBulb } from 'react-icons/ai';
-import { ThemeContext } from 'Root/theme';
+import React, { useState } from 'react';
+import Burger from './components/Burger';
+import Menu from './components/Menu';
+
+import Dashboard from './components/Dashboard';
+import Settings from './components/Settings';
+
+import { HashRouter, Route, Routes } from 'react-router-dom';
+
 const AppWrapper = styled.div`
 	width: 100%;
 	height: 100%;
 	display: flex;
-	align-items: center;
-	justify-content: center;
 `;
 
 const ContentWrapper = styled.div`
@@ -18,19 +20,32 @@ const ContentWrapper = styled.div`
 	text-align: center;
 `;
 
+const DashboardWrapper = styled.div`
+	position: absolute;
+	margin-left: 150px;
+	height: 90vh;
+	text-align: left;
+	top: 5rem;
+`;
+
 const App = () => {
-	const [toggleTheme] = React.useContext(ThemeContext);
+	//const [toggleTheme] = React.useContext(ThemeContext);
+
+	const [hamburger, setHamburger] = useState(false);
 
 	return (
 		<AppWrapper>
 			<ContentWrapper>
-				<Button href="https://github.com/owocowe-piatki/home-automation">
-					<ImGithub /> home-automation
-				</Button>
-
-				<Button onClick={() => toggleTheme()}>
-					<AiFillBulb /> Switch theme
-				</Button>
+				<Burger hamburger={hamburger} setHamburger={() => setHamburger(!hamburger)} />
+				<Menu open={hamburger} />
+				<DashboardWrapper>
+					<HashRouter>
+						<Routes>
+							<Route path="/" element={<Dashboard />} />
+							<Route path="/settings" element={<Settings />} />
+						</Routes>
+					</HashRouter>
+				</DashboardWrapper>
 			</ContentWrapper>
 		</AppWrapper>
 	);
