@@ -23,6 +23,7 @@ admin.site.site_title = "Home admin"
 admin.site.index_title = "Administration"
 admin.site.enable_nav_sidebar = False
 
+
 class DRFAuthenticateGraphQLView(GraphQLView):
     def parse_body(self, request):
         if isinstance(request, Request):
@@ -37,13 +38,14 @@ class DRFAuthenticateGraphQLView(GraphQLView):
         view = api_view(["GET", "POST"])(view)
         return view
 
+
 urlpatterns = [
     # admin site
     path("admin/doc/", include("django.contrib.admindocs.urls")),
     path("admin/", admin.site.urls),
     # user authentication
     path("users/", include('apps.users.urls')),
-    #graphql endpoints
+    # graphql endpoints
     path("graphql/", DRFAuthenticateGraphQLView.as_view(graphiql=True)),
     # frontend template path
     path("", login_required(TemplateView.as_view(template_name="frontend.html")), name="frontend"),
