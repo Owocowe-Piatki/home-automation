@@ -2,7 +2,7 @@ import React from 'react';
 
 const lightTheme = {
 	text: '#000',
-	textSecondary: '#696969',	
+	textSecondary: '#696969',
 	background: '#E5E5E5',
 	mobile: '576px',
 	colors: {
@@ -13,7 +13,7 @@ const lightTheme = {
 
 const darkTheme = {
 	text: '#F5F5F5',
-	textSecondary: '#D3D3D3',	
+	textSecondary: '#D3D3D3',
 	background: '#2F2F2F',
 	mobile: '576px',
 	colors: {

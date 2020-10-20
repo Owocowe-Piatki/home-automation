@@ -4,28 +4,21 @@ import Button from './Button';
 import PropTypes from 'prop-types';
 
 const SettingsStyle = styled.div`
-    width: 100%;
+	width: 100%;
 
-
-
-
-    hr{
-        border: solid ${(p) => p.theme.textSecondary} 2px;
-    }
+	hr {
+		border: solid ${(p) => p.theme.textSecondary} 2px;
+	}
 `;
 
-const Settings = ({toggleTheme, isDark}) => {
+const Settings = ({ toggleTheme, isDark }) => {
 	return (
 		<SettingsStyle>
 			<h1>Settings</h1>
-            <hr></hr>
-            <h2>Visual</h2>
-            <p>Theme: </p>
-            <Button onClick={() => toggleTheme()}>
-				Switch to {isDark ? 'light' : 'dark'} theme
-			</Button>
-
-
+			<hr></hr>
+			<h2>Visual</h2>
+			<p>Theme: </p>
+			<Button onClick={() => toggleTheme()}>Switch to {isDark ? 'light' : 'dark'} theme</Button>
 		</SettingsStyle>
 	);
 };

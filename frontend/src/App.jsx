@@ -31,7 +31,6 @@ const DashboardWrapper = styled.div`
 `;
 
 const App = () => {
-	
 	const [toggleTheme] = React.useContext(ThemeContext);
 
 	const [hamburger, setHamburger] = useState(false);
@@ -45,7 +44,7 @@ const App = () => {
 					<HashRouter>
 						<Routes>
 							<Route path="/" element={<Dashboard />} />
-							<Route path="/settings" element={<Settings toggleTheme={toggleTheme}/> } />
+							<Route path="/settings" element={<Settings toggleTheme={toggleTheme} />} />
 						</Routes>
 					</HashRouter>
 				</DashboardWrapper>
