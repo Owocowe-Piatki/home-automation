@@ -3,7 +3,7 @@ BASE_DIR=$(dirname $0)
 
 run_flake8() {
     printf "\nRunning flake8\n"
-    poetry run flake8 . --max-line-length=120 --extend-exclude "migrations"
+    poetry run flake8 . --max-line-length=100 --extend-exclude "migrations"
 }
 
 run_isort() {
