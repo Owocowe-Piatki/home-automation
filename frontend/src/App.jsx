@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import React, { useState } from 'react';
-import Burger from './components/Burger';
 import Menu from './components/Menu';
-
+import Profile from './components/Profile';
 import { ThemeContext } from 'Root/theme';
 import Dashboard from './components/Dashboard';
 import Settings from './components/Settings';
@@ -16,18 +15,13 @@ const AppWrapper = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-	width: 95vw;
-	max-width: 1000px;
+	display: grid;
 	text-align: center;
+	grid-template-columns: minmax(80px, auto) minmax(50vw, auto);
 `;
 
 const DashboardWrapper = styled.div`
-	position: absolute;
-	margin-left: 150px;
-	height: 90vh;
-	text-align: left;
-	top: 5rem;
-	width: 80vw;
+	margin: 15px;
 `;
 
 const App = () => {
@@ -38,13 +32,13 @@ const App = () => {
 	return (
 		<AppWrapper>
 			<ContentWrapper>
-				<Burger hamburger={hamburger} setHamburger={() => setHamburger(!hamburger)} />
-				<Menu open={hamburger} />
+				<Menu open={hamburger} setHamburger={() => setHamburger(!hamburger)} />
 				<DashboardWrapper>
 					<HashRouter>
 						<Routes>
 							<Route path="/" element={<Dashboard />} />
 							<Route path="/settings" element={<Settings toggleTheme={toggleTheme} />} />
+							<Route path="/profile" element={<Profile />} />
 						</Routes>
 					</HashRouter>
 				</DashboardWrapper>

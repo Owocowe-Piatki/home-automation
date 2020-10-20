@@ -4,8 +4,7 @@ import Button from './Button';
 import PropTypes from 'prop-types';
 
 const SettingsStyle = styled.div`
-	width: 100%;
-
+	text-align: left;
 	hr {
 		border: solid ${(p) => p.theme.textSecondary} 2px;
 	}
@@ -24,7 +23,7 @@ const Settings = ({ toggleTheme, isDark }) => {
 };
 
 Settings.propTypes = {
-	toggleTheme: PropTypes.bool,
+	toggleTheme: PropTypes.func,
 	isDark: PropTypes.bool,
 };
 
