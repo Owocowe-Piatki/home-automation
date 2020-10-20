@@ -13,15 +13,24 @@ jobs:
 
         steps:
             - uses: actions/checkout@v2
+            - uses: actions/cache@v2
+              with:
+                  path: '~/.poetry'
+                  key: ${{ runner.os }}-modules-${{ hashFiles('**/poetry.lock') }}
             - uses: actions/setup-python@v2
               with:
                   python-version: 3.8
 
             - name: Setup poetry
-              uses: dschep/install-poetry-action@v1.3
+              uses: abatilo/actions-poetry@v2.0.0
+
+            - name: Configure poetry
+              run: |
+                  poetry config virtualenvs.create false
+                  poetry config cache-dir ~/.poetry
 
             - name: Install requirements
-              run: poetry install
+              run: poetry install --no-root
 
             - name: Run flake8 checks
               run: ./test.sh flake8
