@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Button from './Button';
-import Settings from './Settings'
-import Menu from './Menu'
+import Settings from './Settings';
+import Menu from './Menu';
 //import Profile from './Profile'
 
 
