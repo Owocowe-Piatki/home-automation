@@ -21,7 +21,7 @@ jobs:
               uses: abatilo/actions-poetry@v2.0.0
 
             - name: Install requirements
-              run: poetry export --dev -f requirements.txt -o requirements.txt && pip install -r requirements.txt
+              run: poetry install
 
             - name: Run flake8 checks
               run: ./test.sh flake8
