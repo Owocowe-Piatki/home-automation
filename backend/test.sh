@@ -37,7 +37,6 @@ case "$1" in
         run_flake8
         run_isort
         run_unittests
-        printf "\nTests passed\n"
         ;;
     *)
         echo "Unknown command '$1'"
