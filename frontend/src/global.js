@@ -7,6 +7,7 @@ export const GlobalStyle = createGlobalStyle`
 		margin: 0;
 		box-sizing: border-box;
 		font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
+		transition: 0.2s
 	}
 
 	*, *:before, &:after {

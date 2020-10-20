@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Burger from './components/Burger';
 import Menu from './components/Menu';
 
+import { ThemeContext } from 'Root/theme';
 import Dashboard from './components/Dashboard';
 import Settings from './components/Settings';
 
@@ -26,10 +27,12 @@ const DashboardWrapper = styled.div`
 	height: 90vh;
 	text-align: left;
 	top: 5rem;
+	width: 80vw;
 `;
 
 const App = () => {
-	//const [toggleTheme] = React.useContext(ThemeContext);
+	
+	const [toggleTheme] = React.useContext(ThemeContext);
 
 	const [hamburger, setHamburger] = useState(false);
 
@@ -42,7 +45,7 @@ const App = () => {
 					<HashRouter>
 						<Routes>
 							<Route path="/" element={<Dashboard />} />
-							<Route path="/settings" element={<Settings />} />
+							<Route path="/settings" element={<Settings toggleTheme={toggleTheme}/> } />
 						</Routes>
 					</HashRouter>
 				</DashboardWrapper>

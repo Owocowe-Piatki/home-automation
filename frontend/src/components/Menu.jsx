@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
 import { BsFillPersonFill } from 'react-icons/bs';
-import { GrLogout } from 'react-icons/gr';
-import { FiSettings } from 'react-icons/fi';
+import { FiSettings, FiLogOut } from 'react-icons/fi';
 import { RiDashboardLine } from 'react-icons/ri';
 import PropTypes from 'prop-types';
 
@@ -14,12 +13,12 @@ const MenuStyled = styled.nav`
 	top: 5%;
 	bottom: 5%;
 	left: 0;
-	transition: 0.5s;
+	transition: 0.2s;
 	overflow: hidden;
 	z-index: 1;
 	padding-top: 60px;
 	white-space: nowrap;
-	border-right: 2px solid black;
+	border-right: 2px solid ${(p) => p.theme.textSecondary};
 
 	a {
 		padding: 8px 8px 8px 32px;
@@ -85,7 +84,7 @@ const Menu = ({ open }) => {
 				</a>
 				<a href="/users/logout">
 					<i>
-						<GrLogout />
+						<FiLogOut />
 					</i>
 					<span label="logout">Logout</span>
 				</a>

@@ -17,7 +17,7 @@ const Hamburger = styled.div`
 		height: 5px;
 		transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s;
 
-		background: ${(p) => (p.open ? p.theme.colors.error : p.theme.colors.accent)};
+		background: ${(p) => (p.open ? p.theme.colors.error : p.theme.text)};
 	}
 
 	&:hover {

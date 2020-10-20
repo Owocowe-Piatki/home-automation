@@ -1,17 +1,38 @@
 import styled from 'styled-components';
 import React from 'react';
+import Button from './Button';
+import PropTypes from 'prop-types';
 
 const SettingsStyle = styled.div`
-	background-color: black;
-	color: white;
+    width: 100%;
+
+
+
+
+    hr{
+        border: solid ${(p) => p.theme.textSecondary} 2px;
+    }
 `;
 
-const Settings = () => {
+const Settings = ({toggleTheme, isDark}) => {
 	return (
 		<SettingsStyle>
 			<h1>Settings</h1>
+            <hr></hr>
+            <h2>Visual</h2>
+            <p>Theme: </p>
+            <Button onClick={() => toggleTheme()}>
+				Switch to {isDark ? 'light' : 'dark'} theme
+			</Button>
+
+
 		</SettingsStyle>
 	);
+};
+
+Settings.propTypes = {
+	toggleTheme: PropTypes.bool,
+	isDark: PropTypes.bool,
 };
 
 export default Settings;
