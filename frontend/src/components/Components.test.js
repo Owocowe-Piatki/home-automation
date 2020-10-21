@@ -2,9 +2,8 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Button from './Button';
 import Settings from './Settings';
-import Menu from './Menu';
-//import Profile from './Profile'
 
+//import Profile from './Profile'
 
 test('Button displays correct text', () => {
 	const component = renderer.create(<Button>Test</Button>);
@@ -20,12 +19,6 @@ test('Settings displays correct text', () => {
 	expect(tree).toMatchSnapshot();
 });
 
-test('Menu displays correct text', () => {
-	const component = renderer.create(<Menu>Test</Menu>);
-
-	let tree = component.toJSON();
-	expect(tree).toMatchSnapshot();
-});
 /*
 test('Profile displays correct text', () => {
 	const component = renderer.create(<Profile>Test</Profile>);

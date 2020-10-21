@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import React from 'react';
 import Button from './Button';
 import PropTypes from 'prop-types';
+import { ThemeContext } from 'Root/theme';
 
 const SettingsStyle = styled.div`
 	text-align: left;
@@ -10,7 +11,8 @@ const SettingsStyle = styled.div`
 	}
 `;
 
-const Settings = ({ toggleTheme, isDark }) => {
+const Settings = () => {
+	const [toggleTheme, isDark] = React.useContext(ThemeContext);
 	return (
 		<SettingsStyle>
 			<h1>Settings</h1>

@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import React, { useState } from 'react';
-import Menu from './components/Menu';
+import Menu from './pages/Menu';
 import Profile from './components/Profile';
-import { ThemeContext } from 'Root/theme';
 import Dashboard from './components/Dashboard';
 import Settings from './components/Settings';
 
@@ -25,8 +24,6 @@ const DashboardWrapper = styled.div`
 `;
 
 const App = () => {
-	const [toggleTheme] = React.useContext(ThemeContext);
-
 	const [hamburger, setHamburger] = useState(false);
 
 	return (
@@ -37,7 +34,7 @@ const App = () => {
 					<HashRouter>
 						<Routes>
 							<Route path="/" element={<Dashboard />} />
-							<Route path="/settings" element={<Settings toggleTheme={toggleTheme} />} />
+							<Route path="/settings" element={<Settings />} />
 							<Route path="/profile" element={<Profile />} />
 						</Routes>
 					</HashRouter>

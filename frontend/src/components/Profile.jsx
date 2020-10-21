@@ -6,12 +6,11 @@ const ProfileStyled = styled.div`
 `;
 
 const Profile = () => {
-
 	return (
 		<ProfileStyled>
 			<h1>This is profile</h1>
-            {/*global user*/}
-            {/*eslint no-undef: "error"*/}
+			{/*global user*/}
+			{/*eslint no-undef: "error"*/}
 			<h2>user {user}</h2>
 		</ProfileStyled>
 	);
