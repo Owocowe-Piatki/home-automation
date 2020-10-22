@@ -72,7 +72,7 @@ INSTALLED_APPS = [
     # modules
     "apps.users",
     "apps.home",
-    "apps.appliances.lamp",
+    "appliances.lamp",
     "apps.mqtt",  # has to be last
 ]
 
