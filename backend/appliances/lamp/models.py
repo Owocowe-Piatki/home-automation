@@ -1,7 +1,8 @@
 import logging
 
-from apps.home.models import Appliance
 from django.db import models
+
+from apps.home.models import Appliance
 
 logger = logging.getLogger(__name__)
 

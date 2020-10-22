@@ -1,5 +1,6 @@
-from apps.home.admin import ApplianceChildAdmin, ApplianceParentAdmin
 from django.contrib import admin
+
+from apps.home.admin import ApplianceChildAdmin, ApplianceParentAdmin
 
 from .models import Lamp
 

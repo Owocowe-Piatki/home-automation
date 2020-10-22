@@ -1,5 +1,6 @@
-from apps.mqtt.signals import mqtt_receive
 from django.apps import AppConfig
+
+from apps.mqtt.signals import mqtt_receive
 
 
 class HomeConfig(AppConfig):
