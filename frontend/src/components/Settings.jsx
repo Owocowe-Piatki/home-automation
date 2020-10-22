@@ -19,7 +19,9 @@ const Settings = () => {
 			<hr></hr>
 			<h2>Visual</h2>
 			<p>Theme: </p>
-			<Button onClick={() => toggleTheme()}>Switch to {isDark ? 'light' : 'dark'} theme</Button>
+			<Button onClick={() => toggleTheme()}>
+				Switch to {isDark ? 'light' : 'dark'} theme
+			</Button>
 		</SettingsStyle>
 	);
 };
