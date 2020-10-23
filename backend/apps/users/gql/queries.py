@@ -1,7 +1,9 @@
-import graphene
 from datetime import datetime
-from .types import UserType, CurrentUserType
+
+import graphene
+
 from ..models import User
+from .types import CurrentUserType, UserType
 
 
 class UserQuery(graphene.ObjectType):
@@ -13,9 +15,9 @@ class UserQuery(graphene.ObjectType):
 
     def resolve_user_birthday(self, info):
         return User.objects.filter(
-                birth_date__month=datetime.now().month,
-                birth_date__day__gte=datetime.now().day
-            )
+            birth_date__month=datetime.now().month,
+            birth_date__day__gte=datetime.now().day,
+        )
 
 
 schema = graphene.Schema(query=UserQuery)
