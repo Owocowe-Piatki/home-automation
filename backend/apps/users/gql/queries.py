@@ -3,12 +3,12 @@ from datetime import datetime
 import graphene
 
 from ..models import User
-from .types import CurrentUserType, UserType
+from .types import PublicUserType, UserType
 
 
 class UserQuery(graphene.ObjectType):
-    current_user = graphene.Field(CurrentUserType)
-    user_birthday = graphene.List(UserType)
+    current_user = graphene.Field(UserType)
+    user_birthday = graphene.List(PublicUserType)
 
     def resolve_current_user(self, info):
         return info.context.user
