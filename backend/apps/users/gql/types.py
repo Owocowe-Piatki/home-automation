@@ -1,6 +1,6 @@
+from django.contrib.auth.models import Group, Permission
 from graphene_django import DjangoObjectType
-from django.contrib.auth.models import Group
-from django.contrib.auth.models import Permission
+
 from ..models import User
 
 

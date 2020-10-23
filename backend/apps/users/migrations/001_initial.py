@@ -24,7 +24,9 @@ class Migration(migrations.Migration):
                 "constraints": [],
             },
             bases=("auth.group",),
-            managers=[("objects", django.contrib.auth.models.GroupManager()),],
+            managers=[
+                ("objects", django.contrib.auth.models.GroupManager()),
+            ],
         ),
         migrations.CreateModel(
             name="User",
@@ -104,6 +106,9 @@ class Migration(migrations.Migration):
                     ),
                 ),
             ],
-            options={"verbose_name": "user", "verbose_name_plural": "users",},
+            options={
+                "verbose_name": "user",
+                "verbose_name_plural": "users",
+            },
         ),
     ]
