@@ -1,4 +1,5 @@
 import graphene
+
 from apps.users.gql.queries import UserQuery
 
 
