@@ -1,7 +1,8 @@
 import graphene
 
-from ..models import Room
-from .types import RoomType
+from ..models import Appliance, Room
+from .appliance_type import ApplianceUnionType
+from .room_type import RoomType
 
 
 class RoomQuery(graphene.ObjectType):
@@ -10,8 +11,14 @@ class RoomQuery(graphene.ObjectType):
     def resolve_rooms(self, info):
         return Room.objects.all()
 
+class ApplianceQuery(graphene.ObjectType):
+    appliances = graphene.List(ApplianceUnionType)
 
-class HomeQuery(RoomQuery, graphene.ObjectType):
+    def resolve_appliances(self, info):
+        return Appliance.objects.all()
+
+
+class HomeQuery(ApplianceQuery, RoomQuery, graphene.ObjectType):
     pass
 
 
