@@ -14,12 +14,12 @@ for appliance in inspect.getmembers(appliances, inspect.ismodule):
     if hasattr(appliance[1], "graphql"):
 
         # Attach queries
-        if hasattr(appliance[1].graphql, "query"):
-            queries.append(appliance[1].graphql.query)
+        if hasattr(appliance[1].graphql, "Query"):
+            queries.append(appliance[1].graphql.Query)
 
         # Attach mutations
-        if hasattr(appliance[1].graphql, "mutation"):
-            mutations.append(appliance[1].graphql.mutation)
+        if hasattr(appliance[1].graphql, "Mutation"):
+            mutations.append(appliance[1].graphql.Mutation)
 
 
 class Query((*queries), graphene.ObjectType):

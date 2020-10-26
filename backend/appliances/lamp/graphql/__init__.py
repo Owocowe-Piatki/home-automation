@@ -1,8 +1,18 @@
+import graphene
+
 from ..models import Lamp as LampModel
-from .queries import LampMutation, LampQuery
 from .types import Lamp as LampType
 
-query = LampQuery
-mutation = LampMutation
 type = LampType
 model = LampModel
+
+
+class Query(graphene.ObjectType):
+    lamps = graphene.List(LampType)
+
+    def resolve_lamps(self, info, **kwargs):
+        return LampModel.objects.all()
+
+
+class Mutation(graphene.ObjectType):
+    pass
