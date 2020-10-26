@@ -1,4 +1,5 @@
 import graphene
+
 from apps.home.graphql.queries import HomeQuery
 from apps.users.graphql.queries import UserQuery
 
