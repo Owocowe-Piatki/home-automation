@@ -11,6 +11,7 @@ class RoomQuery(graphene.ObjectType):
     def resolve_rooms(self, info):
         return Room.objects.all()
 
+
 class ApplianceQuery(graphene.ObjectType):
     appliances = graphene.List(ApplianceUnionType)
 
