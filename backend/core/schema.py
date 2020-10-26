@@ -1,9 +1,9 @@
 import graphene
+from apps.home.graphql.queries import HomeQuery
+from apps.users.graphql.queries import UserQuery
 
-from apps.users.gql.queries import UserQuery
 
-
-class Query(UserQuery, graphene.ObjectType):
+class Query(HomeQuery, UserQuery, graphene.ObjectType):
     hello = graphene.String(default_value="Hi!")
 
 
