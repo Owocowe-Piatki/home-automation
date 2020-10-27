@@ -59,42 +59,6 @@ const Profile = styled(TopbarButton)`
 
 const Settings = styled(TopbarButton)``;
 
-const PageLink = styled(NavLink)`
-	display: flex;
-	height: ${(p) => (p.open ? '30px' : '50px')};
-	width: 100%;
-	align-items: center;
-	text-decoration: none;
-
-	padding: 2px 5px;
-
-	justify-content: ${(p) => (p.open ? 'space-between' : 'center')};
-
-	color: ${(p) => p.theme.text.primary};
-
-	& svg {
-		width: ${(p) => (p.open ? '25px' : '35px')};
-		height: ${(p) => (p.open ? '25px' : '35px')};
-	}
-
-	& div {
-		width: 100%;
-		display: ${(p) => (p.open ? 'flex' : 'none')};
-		justify-content: left;
-		padding-left: 10px;
-		align-items: center;
-		height: 40px;
-	}
-
-	&.active {
-		background: ${(p) => p.theme.box.highlight};
-	}
-
-	&:hover {
-		background: rgba(0, 0, 0, 0.1);
-	}
-`;
-
 const Topbar = () => {
 	const [open, setOpen] = React.useContext(SidebarContext);
 
