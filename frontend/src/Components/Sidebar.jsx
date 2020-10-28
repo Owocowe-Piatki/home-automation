@@ -8,12 +8,25 @@ import Spacer from 'Theme/Components/Spacer';
 const Container = styled.div`
 	display: flex;
 	flex-direction: column;
-
 	height: 100%;
-	min-width: ${(p) => (p.open ? p.theme.sidebar.wide.width : p.theme.sidebar.narrow.width)};
-	transition: min-width 0.5s;
-
 	background: ${(p) => p.theme.sidebar.background};
+
+	// Mobile
+	@media screen and (max-width: 800px) {
+		position: fixed;
+		min-width: ${(p) => p.theme.sidebar.wide.width};
+
+		transform: ${(p) => (p.open ? 'translateX(0)' : 'translateX(-100%)')};
+		transition: transform 0.3s;
+	}
+
+	// Desktop
+	@media screen and (min-width: 800px) {
+		min-width: ${(p) => (p.open ? p.theme.sidebar.wide.width : p.theme.sidebar.narrow.width)};
+
+		transition: min-width 0.3s; // BAD
+		will-change: min-width;
+	}
 `;
 
 const PageLink = styled(NavLink)`
