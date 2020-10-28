@@ -1,4 +1,5 @@
 {
+	"exclude": ["node_modules", "dist", "static"],
 	"compilerOptions": {
 		"target": "es2020",
 		"allowSyntheticDefaultImports": false,
@@ -9,6 +10,5 @@
 			"Theme/*": ["src/Theme/*"],
 			"Root/*": ["src/*"]
 		}
-	},
-	"exclude": ["node_modules"]
+	}
 }
