@@ -8,6 +8,7 @@ jobs:
     docker-build:
         name: Docker build image and push
         runs-on: ubuntu-latest
+        if: github.repository == 'owocowe-piatki/home-automation'
 
         steps:
             - name: Checkout
