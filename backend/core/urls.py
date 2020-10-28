@@ -44,7 +44,7 @@ urlpatterns = [
     # graphql endpoints
     path("graphql/", DRFAuthenticateGraphQLView.as_view(graphiql=True)),
     # rest api endpoints
-    path("api/", include("apps.users.rest.urls")),
+    path("api/users/", include("apps.users.rest.urls")),
     # frontend template path
     path(
         "",
