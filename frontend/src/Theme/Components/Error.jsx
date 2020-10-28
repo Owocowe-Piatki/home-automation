@@ -11,8 +11,8 @@ const ErrorContainer = styled.div`
 	align-items: center;
 `;
 
-const Loading = (message) => {
+const Error = (message) => {
 	return <ErrorContainer>Error {message}</ErrorContainer>;
 };
 
-export default Loading;
+export default Error;
