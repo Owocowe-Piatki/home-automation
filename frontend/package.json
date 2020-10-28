@@ -107,7 +107,8 @@
 			"plugin:react/recommended"
 		],
 		"globals": {
-			"workbox": "readonly"
+			"workbox": "readonly",
+			"csrf_token": "readonly"
 		},
 		"parser": "babel-eslint",
 		"parserOptions": {
