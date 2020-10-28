@@ -5,6 +5,7 @@ const Box = styled.div`
 	box-shadow: ${(p) => p.theme.box.shadow};
 	padding: 10px;
 	border-radius: 5px;
+	min-height: 100px;
 
 	margin: 5px;
 `;

@@ -2,7 +2,7 @@ import React from 'react';
 import themes from './themes';
 
 // Create react context for theme info
-export const ThemeContext = React.createContext([{}, () => {}, false]);
+export const ThemeContext = React.createContext({ theme: {}, toggle: () => {}, isDark: false });
 
 // Define a hook to control theme from any component
 export const useTheme = () => {
@@ -22,7 +22,7 @@ export const useTheme = () => {
 	const [theme, setTheme] = React.useState(stored);
 
 	// Theme switcher function
-	const switchTheme = () => {
+	const toggleTheme = () => {
 		const newTheme = theme === 'dark' ? 'light' : 'dark';
 		setTheme(newTheme);
 		localStorage.setItem('theme', newTheme);
@@ -30,5 +30,5 @@ export const useTheme = () => {
 
 	let isDark = theme === 'dark';
 
-	return [isDark ? themes.dark : themes.light, switchTheme, isDark];
+	return { theme: isDark ? themes.dark : themes.light, toggle: toggleTheme, isDark: isDark };
 };

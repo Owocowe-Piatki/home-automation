@@ -27,10 +27,10 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 const Root = () => {
-	const [theme, toggleTheme, isDark] = useTheme();
+	const { theme, toggle, isDark } = useTheme();
 
 	return (
-		<ThemeContext.Provider value={[toggleTheme, isDark]}>
+		<ThemeContext.Provider value={{ theme, toggle, isDark }}>
 			<ThemeProvider theme={theme}>
 				<Router>
 					<GlobalStyle />

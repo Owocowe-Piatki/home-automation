@@ -10,7 +10,7 @@ import Box from 'Theme/Components/Box';
 const SettingsGrid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: repeat(auto-fill, minmax(150px, 1fr));
+	grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
 
 	@media screen and (max-width: 1200px) {
 		grid-template-columns: 1fr 1fr;
@@ -31,7 +31,7 @@ const CategoryHeader = styled.h2`
 `;
 
 const Settings = () => {
-	const [toggleTheme, isDark] = React.useContext(ThemeContext);
+	const { toggle, isDark } = React.useContext(ThemeContext);
 
 	return (
 		<PageContainer>
@@ -40,7 +40,7 @@ const Settings = () => {
 			<SettingsGrid>
 				<Box>
 					<CategoryHeader>Visual</CategoryHeader>
-					<ThemeSwitcher onClick={() => toggleTheme()}>
+					<ThemeSwitcher onClick={() => toggle()}>
 						Switch to {isDark ? 'light' : 'dark'} theme
 					</ThemeSwitcher>
 				</Box>

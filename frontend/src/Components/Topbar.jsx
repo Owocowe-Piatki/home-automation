@@ -9,23 +9,29 @@ import { SidebarContext } from './Sidebar';
 import Hamburger from 'Theme/Components/Hamburger';
 import Spacer from 'Theme/Components/Spacer';
 
-const Container = styled.div`
+const TopbarContainer = styled.div`
 	position: fixed;
-	width: 100%;
-	height: ${(p) => p.theme.topbar.height};
 	top: 0;
-	background: ${(p) => p.theme.topbar.background};
-	color: ${(p) => p.theme.topbar.text};
+
+	z-index: 100;
 
 	display: flex;
 	align-items: center;
+
+	padding: 0 5px;
+
+	width: 100%;
+	height: ${(p) => p.theme.topbar.height};
+
+	background: ${(p) => p.theme.topbar.background};
+	color: ${(p) => p.theme.topbar.text};
 `;
 
 const TopbarButton = styled(NavLink)`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 50px;
+	height: 100%;
 
 	text-decoration: none;
 
@@ -33,7 +39,7 @@ const TopbarButton = styled(NavLink)`
 
 	font-size: 15px;
 
-	padding: 0 10px;
+	padding: 0 5px;
 
 	&:hover {
 		color: ${(p) => p.theme.topbar.textActive};
@@ -44,7 +50,7 @@ const TopbarButton = styled(NavLink)`
 	}
 
 	& svg {
-		font-size: 30px;
+		font-size: 25px;
 		margin: 0 5px;
 	}
 `;
@@ -57,18 +63,24 @@ const Profile = styled(TopbarButton)`
 	}
 `;
 
+const SidebarHamburger = styled(Hamburger)`
+	@media screen and (min-width: 800px) {
+		display: none;
+	}
+`;
+
 const Settings = styled(TopbarButton)``;
 
 const Topbar = () => {
 	const [open, setOpen] = React.useContext(SidebarContext);
 
 	return (
-		<Container>
-			<Hamburger state={open} onClick={() => setOpen(!open)}>
+		<TopbarContainer>
+			<SidebarHamburger state={open} onClick={() => setOpen(!open)}>
 				<span />
 				<span />
 				<span />
-			</Hamburger>
+			</SidebarHamburger>
 
 			<Spacer />
 
@@ -79,7 +91,7 @@ const Topbar = () => {
 			<Profile to="/profile">
 				<FaUserAlt />
 			</Profile>
-		</Container>
+		</TopbarContainer>
 	);
 };
 

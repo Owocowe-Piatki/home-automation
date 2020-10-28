@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
 const Hamburger = styled.div`
-	width: ${(p) => p.theme.sidebar.narrow.width};
-	height: 24px;
+	width: 32px;
+	height: 20px;
 	z-index: 10;
 
 	& span {
 		display: block;
 		position: relative;
 		border-radius: 3px;
-		width: 30px;
-		height: 5px;
+		width: 26px;
+		height: 4px;
 		transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 
 		margin: 0 auto;
@@ -19,11 +19,11 @@ const Hamburger = styled.div`
 	}
 
 	& span:nth-child(1) {
-		transform: ${(p) => (p.state ? 'translateY(9px) rotate(45deg)' : '')};
+		transform: ${(p) => (p.state ? 'translateY(8px) rotate(45deg)' : '')};
 	}
 
 	& span:nth-child(3) {
-		transform: ${(p) => (p.state ? 'translateY(-9px) rotate(-45deg)' : '')};
+		transform: ${(p) => (p.state ? 'translateY(-8px) rotate(-45deg)' : '')};
 	}
 
 	& span:nth-child(2) {

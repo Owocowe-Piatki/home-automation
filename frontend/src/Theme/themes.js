@@ -2,19 +2,19 @@ import merge from 'lodash/merge';
 
 const common = {
 	topbar: {
-		height: '50px',
+		height: '35px',
 		background: 'hsl(0, 0%, 20%)',
 		text: 'hsl(0, 0%, 70%)',
 		textActive: 'hsl(0, 0%, 90%)',
 	},
 
 	sidebar: {
-		narrow: {
-			width: '50px',
+		desktop: {
+			width: '150px',
 		},
 
-		wide: {
-			width: '200px',
+		mobile: {
+			width: '40vw',
 		},
 	},
 };
@@ -35,11 +35,7 @@ const lightTheme = {
 	},
 
 	sidebar: {
-		narrow: {},
-		wide: {},
-
 		background: '#FFFFFF',
-
 		linkActive: 'hsl(0, 0%, 95%)',
 	},
 };
@@ -60,9 +56,6 @@ const darkTheme = {
 	},
 
 	sidebar: {
-		narrow: {},
-		wide: {},
-
 		background: '#444444',
 		linkActive: 'hsl(0, 0%, 22%)',
 	},

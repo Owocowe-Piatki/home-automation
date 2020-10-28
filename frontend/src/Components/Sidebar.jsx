@@ -3,35 +3,36 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { RiDashboardFill } from 'react-icons/ri';
 
-import Spacer from 'Theme/Components/Spacer';
+const SidebarContainer = styled.div`
+	position: fixed;
+	top: ${(p) => p.theme.topbar.height};
 
-const Container = styled.div`
 	display: flex;
 	flex-direction: column;
+
+	z-index: 100;
+
 	height: 100%;
 	background: ${(p) => p.theme.sidebar.background};
 
-	// Mobile
 	@media screen and (max-width: 800px) {
-		position: fixed;
-		min-width: ${(p) => p.theme.sidebar.wide.width};
+		width: ${(p) => p.theme.sidebar.mobile.width};
 
+		box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 4px;
 		transform: ${(p) => (p.open ? 'translateX(0)' : 'translateX(-100%)')};
-		transition: transform 0.3s;
+		transition: transform 0.2s;
 	}
 
-	// Desktop
 	@media screen and (min-width: 800px) {
-		min-width: ${(p) => (p.open ? p.theme.sidebar.wide.width : p.theme.sidebar.narrow.width)};
+		width: ${(p) => p.theme.sidebar.desktop.width};
 
-		transition: min-width 0.3s; // BAD
-		will-change: min-width;
+		box-shadow: ${(p) => p.theme.box.shadow};
 	}
 `;
 
 const PageLink = styled(NavLink)`
 	display: flex;
-	height: ${(p) => (p.open ? '30px' : '50px')};
+	height: 30px;
 	width: 100%;
 	align-items: center;
 	text-decoration: none;
@@ -43,17 +44,18 @@ const PageLink = styled(NavLink)`
 	color: ${(p) => p.theme.text.secondary};
 
 	& svg {
-		width: ${(p) => (p.open ? '25px' : '35px')};
-		height: ${(p) => (p.open ? '25px' : '35px')};
+		width: 25px;
+		height: 25px;
 	}
 
 	& div {
 		width: 100%;
-		display: ${(p) => (p.open ? 'flex' : 'none')};
+		display: flex;
 		justify-content: left;
 		padding-left: 10px;
 		align-items: center;
 		height: 40px;
+		font-size: 15px;
 	}
 
 	&.active {
@@ -72,14 +74,12 @@ const Sidebar = () => {
 	const [open] = React.useContext(SidebarContext);
 
 	return (
-		<Container open={open}>
+		<SidebarContainer open={open}>
 			<PageLink to="/" end>
 				<RiDashboardFill />
 				<div>Dashboard</div>
 			</PageLink>
-
-			<Spacer />
-		</Container>
+		</SidebarContainer>
 	);
 };
 
