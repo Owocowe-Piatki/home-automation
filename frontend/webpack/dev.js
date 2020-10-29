@@ -4,7 +4,7 @@
 const path = require('path');
 const config = require('./config.js');
 const { merge } = require('webpack-merge');
-const webpack = require('webpack');
+// const webpack = require('webpack');
 const FriendlyErrors = require('friendly-errors-webpack-plugin');
 const BundleTracker = require('webpack-bundle-tracker');
 
@@ -13,7 +13,7 @@ module.exports = merge(config, {
 	devtool: 'cheap-module-source-map',
 
 	output: {
-		publicPath: '/static/frontend/',
+		publicPath: 'http://localhost:5000/',
 	},
 
 	// webpack-dev-server settings
@@ -23,6 +23,7 @@ module.exports = merge(config, {
 		host: '0.0.0.0',
 		port: 5000,
 		hot: true,
+		hotOnly: true,
 		quiet: true,
 		overlay: {
 			errors: true,
@@ -34,14 +35,6 @@ module.exports = merge(config, {
 	},
 
 	plugins: [
-		// Replace modules without stopping webpack-dev-server
-		new webpack.HotModuleReplacementPlugin(),
-
-		// Disable splitting into multiple javascript bundles because of django integration problems
-		new webpack.optimize.LimitChunkCountPlugin({
-			maxChunks: 1,
-		}),
-
 		// Friendly errors plugin shows much more human friendly errors in the console
 		new FriendlyErrors({
 			compilationSuccessInfo: {

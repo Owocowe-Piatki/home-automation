@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import { ThemeProvider } from 'styled-components';
 import { ThemeContext, useTheme } from './Theme';
@@ -44,6 +43,8 @@ const Root = () => {
 		</ApolloProvider>
 	);
 };
+
+if (module.hot) module.hot.accept();
 
 // Render App with providers on #root
 ReactDOM.render(<Root />, document.getElementById('root'));

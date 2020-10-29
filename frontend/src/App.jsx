@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React from 'react';
+import { useState } from 'react';
 import Sidebar, { SidebarContext } from 'Components/Sidebar';
 import Routing from 'Components/Routing';
 import Topbar from 'Components/Topbar';
@@ -22,7 +22,7 @@ const Overlay = styled.div`
 `;
 
 const App = () => {
-	const [sidebar, setSidebar] = React.useState(false);
+	const [sidebar, setSidebar] = useState(false);
 
 	return (
 		<SidebarContext.Provider value={[sidebar, setSidebar]}>
