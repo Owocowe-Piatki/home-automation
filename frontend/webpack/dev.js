@@ -4,9 +4,9 @@
 const path = require('path');
 const config = require('./config.js');
 const { merge } = require('webpack-merge');
-// const webpack = require('webpack');
 const FriendlyErrors = require('friendly-errors-webpack-plugin');
 const BundleTracker = require('webpack-bundle-tracker');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = merge(config, {
 	mode: 'development',
@@ -35,6 +35,8 @@ module.exports = merge(config, {
 	},
 
 	plugins: [
+		new ReactRefreshWebpackPlugin(),
+
 		// Friendly errors plugin shows much more human friendly errors in the console
 		new FriendlyErrors({
 			compilationSuccessInfo: {
