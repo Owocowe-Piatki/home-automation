@@ -30,14 +30,9 @@ const SiteLoading = () => {
 	const letters = Array.from('LOADING');
 
 	return (
-		<LoadingContainer
-			variants={parentVariants}
-			transition={{ loop: Infinity }}
-			initial="hidden"
-			animate="visible"
-		>
+		<LoadingContainer variants={parentVariants} initial="hidden" animate="visible">
 			{letters.map((letter, idx) => (
-				<Letter key={idx} variants={childVariants} exit="hidden">
+				<Letter key={idx} variants={childVariants}>
 					{letter}
 				</Letter>
 			))}
