@@ -27,7 +27,7 @@ const PageWrapper = styled.div`
 
 const Routing = () => {
 	return (
-        <PageWrapper>
+		<PageWrapper>
 			<Suspense fallback={<Loading />}>
 				<Routes>
 					<Route path="/" element={<Dashboard />} />
@@ -36,7 +36,7 @@ const Routing = () => {
 				</Routes>
 			</Suspense>
 		</PageWrapper>
-    );
+	);
 };
 
 export default Routing;
