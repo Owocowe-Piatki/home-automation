@@ -73,6 +73,7 @@ INSTALLED_APPS = [
     "apps.users",
     "apps.home",
     "appliances.lamp",
+    "appliances.roller",
     "apps.mqtt",  # has to be last
 ]
 
