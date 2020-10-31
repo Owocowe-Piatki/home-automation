@@ -4,18 +4,17 @@ const Button = styled.a`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 5px;
 
-	color: ${(p) => p.theme.text.primary};
-	background: ${(p) => p.theme.buttonBg};
-	border-radius: 5px;
-
-	box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 4px;
-
-	padding: 4px;
+	color: ${(p) => p.theme.button.text};
 	text-decoration: none;
+
+	background: ${(p) => p.theme.button.background};
+	box-shadow: ${(p) => p.theme.button.shadow};
 
 	&:hover {
 		cursor: pointer;
+		background: ${(p) => p.theme.button.backgroundHover};
 	}
 `;
 
