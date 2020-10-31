@@ -80,7 +80,7 @@ const Sidebar = () => {
 				<RiDashboardFill />
 				<div>Dashboard</div>
 			</PageLink>
-			<PageLink to="/lamps" end>
+			<PageLink to="/lamps">
 				<MdcFloorLamp />
 				<div>Lamps</div>
 			</PageLink>
