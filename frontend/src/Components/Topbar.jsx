@@ -1,9 +1,9 @@
-import React from 'react';
+import { useContext } from 'react';
 import styled from 'styled-components';
 import { darken } from 'polished';
 import { NavLink } from 'react-router-dom';
-import { FaUserAlt } from 'react-icons/fa';
-import { RiSettings4Fill } from 'react-icons/ri';
+import { FaUserAlt } from '@meronex/icons/fa';
+import { RiSettings4Fill } from '@meronex/icons/ri';
 
 import { SidebarContext } from './Sidebar';
 import Hamburger from 'Theme/Components/Hamburger';
@@ -72,7 +72,7 @@ const SidebarHamburger = styled(Hamburger)`
 const Settings = styled(TopbarButton)``;
 
 const Topbar = () => {
-	const [open, setOpen] = React.useContext(SidebarContext);
+	const [open, setOpen] = useContext(SidebarContext);
 
 	return (
 		<TopbarContainer>
