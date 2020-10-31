@@ -6,6 +6,7 @@ import PageHeader from 'Theme/Components/PageHeader';
 import Button from 'Theme/Components/Button';
 import PageContainer from 'Theme/Components/PageContainer';
 import Box from 'Theme/Components/Box';
+import CategoryHeader from 'Theme/Components/CategoryHeader';
 
 const SettingsGrid = styled.div`
 	display: grid;
@@ -23,11 +24,6 @@ const SettingsGrid = styled.div`
 
 const ThemeSwitcher = styled(Button)`
 	width: 200px;
-`;
-
-const CategoryHeader = styled.h2`
-	margin: 5px 0;
-	color: ${(p) => p.theme.text.secondary};
 `;
 
 const Settings = () => {

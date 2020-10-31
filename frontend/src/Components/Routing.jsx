@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
 
 import Loading from 'Theme/Components/Loading';
+import Lamps from 'Pages/Lamps';
 
 const Dashboard = lazy(() => import(/* webpackChunkName: 'dashboard' */ 'Pages/Dashboard'));
 const Settings = lazy(() => import(/* webpackChunkName: 'settings' */ 'Pages/Settings'));
@@ -33,6 +34,7 @@ const Routing = () => {
 					<Route path="/" element={<Dashboard />} />
 					<Route path="/settings" element={<Settings />} />
 					<Route path="/profile" element={<Profile />} />
+					<Route path="/lamps" element={<Lamps />} />
 				</Routes>
 			</Suspense>
 		</PageWrapper>

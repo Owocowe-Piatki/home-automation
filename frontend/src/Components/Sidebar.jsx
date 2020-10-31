@@ -2,6 +2,7 @@ import { createContext, useContext } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { RiDashboardFill } from '@meronex/icons/ri';
+import MdcFloorLamp from '@meronex/icons/mdc/MdcFloorLamp';
 
 const SidebarContainer = styled.div`
 	position: fixed;
@@ -78,6 +79,10 @@ const Sidebar = () => {
 			<PageLink to="/" end>
 				<RiDashboardFill />
 				<div>Dashboard</div>
+			</PageLink>
+			<PageLink to="/lamps" end>
+				<MdcFloorLamp />
+				<div>Lamps</div>
 			</PageLink>
 		</SidebarContainer>
 	);
