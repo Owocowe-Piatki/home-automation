@@ -16,10 +16,6 @@ module.exports = {
 		path: path.resolve(__dirname, '../dist'),
 	},
 
-	module: {
-		rules: [],
-	},
-
 	// Create global bindings for common paths
 	resolve: {
 		symlinks: false,
@@ -29,6 +25,18 @@ module.exports = {
 			Components: path.resolve(__dirname, '../src/Components/'),
 			Pages: path.resolve(__dirname, '../src/Pages/'),
 			Theme: path.resolve(__dirname, '../src/Theme'),
+		},
+	},
+
+	optimization: {
+		splitChunks: {
+			cacheGroups: {
+				vendors: {
+					test: /[\\/]node_modules[\\/]/,
+					name: 'vendors',
+					chunks: 'all',
+				},
+			},
 		},
 	},
 

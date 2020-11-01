@@ -22,9 +22,9 @@ module.exports = merge(config, {
 			// Compile .js and .jsx files with babel
 			{
 				test: /\.[jt]s(x)?$/,
-				resolve: { extensions: ['.js', '.jsx'] },
+				resolve: { extensions: ['.js', '.jsx', '.mjs'] },
 				include: path.resolve(__dirname, '../src'),
-				use: ['thread-loader', 'babel-loader'],
+				use: ['babel-loader'],
 			},
 		],
 	},
