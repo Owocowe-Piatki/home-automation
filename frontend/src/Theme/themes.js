@@ -27,7 +27,7 @@ const common = {
 	},
 
 	button: {
-		shadow: 'hsla(0, 0%, 0%, 0.25) 1px 1px 2px',
+		shadow: 'hsla(0, 0%, 0%, 0.25) 0 0 2px',
 	},
 
 	box: {
@@ -50,7 +50,8 @@ const lightTheme = {
 	button: {
 		text: 'hsl(0, 0%, 0%)',
 		background: 'hsl(0, 0%, 90%)',
-		backgroundHover: 'hsl(0, 0%, 85%)',
+		backgroundHover: 'hsl(0, 0%, 80%)',
+		backgroundActive: 'hsl(0, 0%, 70%)',
 	},
 
 	box: {

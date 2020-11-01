@@ -15,7 +15,7 @@ const SidebarContainer = styled.nav`
 	z-index: 100;
 	height: 100%;
 
-	transition: transform 0.5s;
+	transition: transform 0.4s;
 
 	@media screen and (max-width: 900px) {
 		position: fixed;
@@ -24,6 +24,28 @@ const SidebarContainer = styled.nav`
 		top: ${(p) => p.theme.topbar.height};
 		left: 0;
 		bottom: 0;
+		padding-top: 10px;
+	}
+`;
+
+const Overlay = styled(motion.div)`
+	@media screen and (min-width: 900px) {
+		display: none;
+	}
+
+	@media screen and (max-width: 900px) {
+		position: fixed;
+		top: ${(p) => p.theme.topbar.height};
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgb(0, 0, 0);
+
+		opacity: 0.6;
+
+		&:hover {
+			cursor: pointer;
+		}
 	}
 `;
 
@@ -53,10 +75,6 @@ const PageLink = styled(NavLink)`
 		align-items: center;
 		height: 40px;
 		font-size: 0.9rem;
-	}
-
-	&:hover {
-		color: ${(p) => p.theme.text.primary};
 	}
 `;
 
@@ -97,29 +115,31 @@ const Sidebar = () => {
 	const location = useLocation();
 
 	useEffect(() => {
-		console.log('Location changed');
-		setOpen(false);
+		setTimeout(() => setOpen(false), 250);
 	}, [location, setOpen]);
 
 	return (
-		<SidebarContainer open={open}>
-			<AnimateSharedLayout>
-				<AnimatedPageLink to="/" end>
-					<RiDashboardFill />
-					<div>Dashboard</div>
-				</AnimatedPageLink>
+		<>
+			<SidebarContainer open={open}>
+				<AnimateSharedLayout>
+					<AnimatedPageLink to="/" end>
+						<RiDashboardFill />
+						<div>Dashboard</div>
+					</AnimatedPageLink>
 
-				<AnimatedPageLink to="/test1">
-					<MdcTestTube />
-					<div>Test 1</div>
-				</AnimatedPageLink>
+					<AnimatedPageLink to="/test1">
+						<MdcTestTube />
+						<div>Test 1</div>
+					</AnimatedPageLink>
 
-				<AnimatedPageLink to="/test2">
-					<MdcTestTubeEmpty />
-					<div>Test 2</div>
-				</AnimatedPageLink>
-			</AnimateSharedLayout>
-		</SidebarContainer>
+					<AnimatedPageLink to="/test2">
+						<MdcTestTubeEmpty />
+						<div>Test 2</div>
+					</AnimatedPageLink>
+				</AnimateSharedLayout>
+			</SidebarContainer>
+			{open && <Overlay onClick={() => setOpen(false)} />}
+		</>
 	);
 };
 

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import { HashRouter as Router } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/client';
@@ -33,13 +34,6 @@ const Layout = styled.div`
 	width: 100%;
 `;
 
-const SidebarWrapper = styled(Sidebar)`
-	@media screen and (max-width: 900px) {
-		position: fixed;
-		display: none !important;
-	}
-`;
-
 const App = () => {
 	const [sidebar, setSidebar] = useState(false);
 
@@ -47,9 +41,9 @@ const App = () => {
 		<ApolloProvider client={client}>
 			<Router>
 				<SidebarContext.Provider value={[sidebar, setSidebar]}>
-					<Layout>
+					<Layout sidebarOpen={sidebar}>
 						<Topbar />
-						<SidebarWrapper />
+						<Sidebar />
 						<Routing />
 					</Layout>
 				</SidebarContext.Provider>

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-const Button = styled.a`
+const ButtonContainer = styled.a`
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -10,12 +11,33 @@ const Button = styled.a`
 	text-decoration: none;
 
 	background: ${(p) => p.theme.button.background};
-	box-shadow: ${(p) => p.theme.button.shadow};
 
 	&:hover {
 		cursor: pointer;
 		background: ${(p) => p.theme.button.backgroundHover};
 	}
+
+	&:focus {
+		background: ${(p) => p.theme.button.backgroundHover};
+		outline: none;
+		outline-offset: 0;
+	}
+
+	&:active {
+		background: ${(p) => p.theme.button.backgroundActive};
+	}
 `;
+
+const Button = (props) => {
+	return (
+		<ButtonContainer tabIndex="0" {...props}>
+			{props.children}
+		</ButtonContainer>
+	);
+};
+
+Button.propTypes = {
+	children: PropTypes.array,
+};
 
 export default Button;
