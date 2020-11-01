@@ -17,6 +17,26 @@ module.exports = merge(config, {
 		crossOriginLoading: 'anonymous',
 	},
 
+	module: {
+		rules: [
+			// Compile .js and .jsx files with babel
+			{
+				test: /\.[jt]s(x)?$/,
+				resolve: { extensions: ['.js', '.jsx', '.mjs'] },
+				include: path.resolve(__dirname, '../src'),
+				use: [
+					'thread-loader',
+					{
+						loader: 'babel-loader',
+						options: {
+							plugins: ['react-refresh/babel'],
+						},
+					},
+				],
+			},
+		],
+	},
+
 	// webpack-dev-server settings
 	devServer: {
 		contentBase: path.join(__dirname, '../dist'),
