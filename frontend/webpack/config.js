@@ -17,15 +17,7 @@ module.exports = {
 	},
 
 	module: {
-		rules: [
-			// Compile .js and .jsx files with babel
-			{
-				test: /\.[jt]s(x)?$/,
-				resolve: { extensions: ['.js', '.jsx'] },
-				include: path.resolve(__dirname, '../src'),
-				use: ['thread-loader', 'babel-loader'],
-			},
-		],
+		rules: [],
 	},
 
 	// Create global bindings for common paths

@@ -1,6 +1,7 @@
 // Distribution webpack config, configures optimization and minimization
 'use strict';
 
+const path = require('path');
 const config = require('./config.js');
 const { merge } = require('webpack-merge');
 
@@ -14,6 +15,18 @@ module.exports = merge(config, {
 	// Configure where the output folder should be
 	output: {
 		publicPath: '/static/frontend/',
+	},
+
+	module: {
+		rules: [
+			// Compile .js and .jsx files with babel
+			{
+				test: /\.[jt]s(x)?$/,
+				resolve: { extensions: ['.js', '.jsx'] },
+				include: path.resolve(__dirname, '../src'),
+				use: ['thread-loader', 'babel-loader'],
+			},
+		],
 	},
 
 	// Specify Terser configuration
