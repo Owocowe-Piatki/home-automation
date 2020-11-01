@@ -5,7 +5,6 @@ const path = require('path');
 const config = require('./config.js');
 const { merge } = require('webpack-merge');
 
-const Terser = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const BundleTracker = require('webpack-bundle-tracker');
 
@@ -32,7 +31,6 @@ module.exports = merge(config, {
 	// Specify Terser configuration
 	optimization: {
 		minimize: true,
-		minimizer: [new Terser()],
 	},
 
 	plugins: [

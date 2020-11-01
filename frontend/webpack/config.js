@@ -28,18 +28,6 @@ module.exports = {
 		},
 	},
 
-	optimization: {
-		splitChunks: {
-			cacheGroups: {
-				vendors: {
-					test: /[\\/]node_modules[\\/]/,
-					name: 'vendors',
-					chunks: 'all',
-				},
-			},
-		},
-	},
-
 	plugins: [
 		// Copy assets and manifest to dist directory
 		new CopyPlugin({
