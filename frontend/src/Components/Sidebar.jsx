@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { NavLink, useLocation } from 'react-router-dom';
 import { RiDashboardFill } from '@meronex/icons/ri';
-import { MdcTestTube, MdcTestTubeEmpty } from '@meronex/icons/mdc';
 import { motion, AnimateSharedLayout } from 'framer-motion';
 
 const SidebarContainer = styled.nav`
@@ -125,16 +124,6 @@ const Sidebar = () => {
 					<AnimatedPageLink to="/" end>
 						<RiDashboardFill />
 						<div>Dashboard</div>
-					</AnimatedPageLink>
-
-					<AnimatedPageLink to="/test1">
-						<MdcTestTube />
-						<div>Test 1</div>
-					</AnimatedPageLink>
-
-					<AnimatedPageLink to="/test2">
-						<MdcTestTubeEmpty />
-						<div>Test 2</div>
 					</AnimatedPageLink>
 				</AnimateSharedLayout>
 			</SidebarContainer>

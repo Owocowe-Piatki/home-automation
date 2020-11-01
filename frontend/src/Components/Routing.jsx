@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
 
 import Loading from 'Theme/Components/Loading';
-import SiteLoading from 'Theme/Components/SiteLoading';
 
 const Dashboard = lazy(() => import(/* webpackChunkName: 'dashboard' */ 'Pages/Dashboard'));
 const Profile = lazy(() => import(/* webpackChunkName: 'profile' */ 'Pages/Profile'));
@@ -27,7 +26,6 @@ const Routing = () => {
 				<Routes>
 					<Route path="/" element={<Dashboard />} />
 					<Route path="/profile" element={<Profile />} />
-					<Route path="/test1" element={<SiteLoading />} />
 				</Routes>
 			</Suspense>
 		</PageWrapper>
