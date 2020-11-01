@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 import { HashRouter as Router } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/client';

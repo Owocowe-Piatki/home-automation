@@ -72,11 +72,9 @@ const Logo = styled.div`
 	align-items: center;
 
 	user-select: none;
-	padding: 0;
+	padding: 5px;
 
 	max-height: 30px;
-
-	padding: ${(p) => p.theme.globalPadding};
 
 	& svg {
 		width: 35px;
