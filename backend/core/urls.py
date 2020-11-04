@@ -6,6 +6,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.contrib.auth.decorators import login_required
 from django.urls import include, path
+from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
 from graphene_django.views import GraphQLView
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
@@ -52,6 +53,7 @@ urlpatterns = [
         name="frontend",
     ),
 ]
+
 
 # Enable media and static files in debug mode
 if settings.DEBUG:

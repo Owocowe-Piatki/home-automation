@@ -2,6 +2,7 @@ import graphene
 
 from ..models import Lamp as LampModel
 from .mutations import BatchSetLamp, SetLamp, ToggleLamp
+from .subscriptions import LampSwitched
 from .types import Lamp as LampType
 
 type = LampType
@@ -19,3 +20,7 @@ class Mutation(graphene.ObjectType):
     toggle_lamp = ToggleLamp.Field()
     set_lamp = SetLamp.Field()
     batch_set_lamp = BatchSetLamp.Field()
+
+
+class Subscription(LampSwitched, graphene.ObjectType):
+    pass
