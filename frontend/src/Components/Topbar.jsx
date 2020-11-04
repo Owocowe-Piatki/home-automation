@@ -20,14 +20,51 @@ const TopbarContainer = styled.div`
 	height: ${(p) => p.theme.topbar.height};
 `;
 
+const UserPanel = styled(NavLink)`
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	margin-left: auto;
+	padding: 5px 10px;
+
+	text-decoration: none;
+
+	color: ${(p) => readableColor(p.theme.sidebar.linkActive)};
+	border-radius: 5px;
+
+	& span {
+		margin: 0 10px;
+		font-size: 15px;
+		color: ${(p) => p.theme.text.secondary};
+	}
+
+	& svg {
+		font-size: 35px;
+		border-radius: 50%;
+		padding: 2px;
+
+		color: ${(p) => p.theme.text.primary};
+
+		border: 2px solid ${(p) => p.theme.colors.accent};
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+`;
+
 const Hamburger = styled.div`
+	@media screen and (min-width: 900px) {
+		display: none;
+	}
+
 	width: 32px;
 	height: 20px;
 	z-index: 10;
 	margin-right: 10px;
 
-	@media screen and (min-width: 900px) {
-		display: none;
+	&:hover {
+		cursor: pointer;
 	}
 
 	& span {
@@ -47,10 +84,6 @@ const Hamburger = styled.div`
 		transform: ${(p) => (p.state ? 'translateY(8px) rotate(45deg)' : '')};
 	}
 
-	& span:nth-child(3) {
-		transform: ${(p) => (p.state ? 'translateY(-8px) rotate(-45deg)' : '')};
-	}
-
 	& span:nth-child(2) {
 		margin-top: 4px;
 		margin-bottom: 4px;
@@ -58,42 +91,8 @@ const Hamburger = styled.div`
 		transition: opacity 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 	}
 
-	&:hover {
-		cursor: pointer;
-	}
-`;
-
-const UserPanel = styled(NavLink)`
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	margin-left: auto;
-	padding: 5px 10px;
-
-	text-decoration: none;
-
-	color: ${(p) => readableColor(p.theme.sidebar.linkActive)};
-	border-radius: 5px;
-
-	& span {
-		margin: 0 10px;
-		font-size: 15px;
-
-		color: ${(p) => p.theme.text.secondary};
-	}
-
-	& svg {
-		font-size: 35px;
-		border-radius: 50%;
-		padding: 2px;
-
-		color: ${(p) => p.theme.text.primary};
-
-		border: 2px solid ${(p) => p.theme.colors.accent};
-	}
-
-	&:hover {
-		cursor: pointer;
+	& span:nth-child(3) {
+		transform: ${(p) => (p.state ? 'translateY(-8px) rotate(-45deg)' : '')};
 	}
 `;
 

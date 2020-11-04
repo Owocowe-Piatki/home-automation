@@ -17,7 +17,7 @@
 		"prettier": "prettier './src/**/*.(js|jsx)' --check",
 		"prettier:fix": "prettier './src/**/*.(js|jsx)' --write",
 		"lint:js": "eslint ./src/ --ext .js,.jsx",
-		"lint:css": "stylelint './src/**/*.(js|jsx)'",
+		"lint:css": "stylelint './src/**/*.(js|jsx)' --syntax scss",
 		"test:all": "yarn lint:js && yarn lint:css && yarn prettier && yarn test"
 	},
 	"husky": {
