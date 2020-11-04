@@ -8,8 +8,6 @@ from channels.routing import ProtocolTypeRouter, URLRouter
 from django.urls import path
 from graphene_subscriptions.consumers import GraphqlSubscriptionConsumer
 
-from .schema import schema
-
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings")
 
 

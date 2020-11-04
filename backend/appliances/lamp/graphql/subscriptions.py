@@ -1,5 +1,3 @@
-import logging
-
 import graphene
 from graphene_subscriptions.events import UPDATED
 
