@@ -1,12 +1,13 @@
 // Distribution webpack config, configures optimization and minimization
 'use strict';
 
+const path = require('path');
 const config = require('./config.js');
 const { merge } = require('webpack-merge');
 
-const Terser = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const BundleTracker = require('webpack-bundle-tracker');
+const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = merge(config, {
 	mode: 'production',
@@ -16,10 +17,21 @@ module.exports = merge(config, {
 		publicPath: '/static/frontend/',
 	},
 
+	module: {
+		rules: [
+			// Compile .js and .jsx files with babel
+			{
+				test: /\.[jt]s(x)?$/,
+				resolve: { extensions: ['.js', '.jsx', '.mjs'] },
+				include: path.resolve(__dirname, '../src'),
+				use: ['babel-loader'],
+			},
+		],
+	},
+
 	// Specify Terser configuration
 	optimization: {
 		minimize: true,
-		minimizer: [new Terser()],
 	},
 
 	plugins: [
@@ -28,5 +40,11 @@ module.exports = merge(config, {
 
 		// Create a javascript bundle info needed by django
 		new BundleTracker({ path: __dirname, filename: '../webpack-stats.json' }),
+
+		// Inject workbox into serviceworker
+		new InjectManifest({
+			swSrc: path.join(__dirname, '../src/sw.js'),
+			swDest: 'sw.js',
+		}),
 	],
 });

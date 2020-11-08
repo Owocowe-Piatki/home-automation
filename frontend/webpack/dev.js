@@ -14,6 +14,27 @@ module.exports = merge(config, {
 
 	output: {
 		publicPath: 'http://localhost:5000/',
+		crossOriginLoading: 'anonymous',
+	},
+
+	module: {
+		rules: [
+			// Compile .js and .jsx files with babel
+			{
+				test: /\.[jt]s(x)?$/,
+				resolve: { extensions: ['.js', '.jsx', '.mjs'] },
+				include: path.resolve(__dirname, '../src'),
+				use: [
+					'thread-loader',
+					{
+						loader: 'babel-loader',
+						options: {
+							plugins: ['react-refresh/babel'],
+						},
+					},
+				],
+			},
+		],
 	},
 
 	// webpack-dev-server settings
@@ -31,6 +52,8 @@ module.exports = merge(config, {
 		},
 		headers: {
 			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+			'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
 		},
 	},
 

@@ -7,7 +7,7 @@ WORKDIR /app
 
 # Install dependencies
 COPY frontend/package.json frontend/yarn.lock /app/
-RUN yarn install --silent
+RUN yarn install
 
 # Copy app files and build
 COPY frontend/ /app/
@@ -18,7 +18,9 @@ RUN yarn build
 FROM python:3.8-slim
 ENV PYTHONUNBUFFERED 1
 
-RUN pip install poetry uvicorn psycopg2-binary
+RUN apt-get update && apt-get install gcc -y && apt-get clean
+
+RUN pip install poetry psycopg2-binary
 
 RUN mkdir -p /app
 WORKDIR /app
@@ -31,6 +33,7 @@ COPY backend/ /app/
 
 # Copy frontend files to static
 COPY --from=frontend /app/dist/ /app/static/frontend/
+COPY --from=frontend /app/dist/sw.js /app/templates/sw.js
 COPY --from=frontend /app/webpack-stats.json /app/webpack-stats.json
 
 CMD ["./entrypoint.sh"]

@@ -5,6 +5,8 @@ const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+	target: 'web',
+
 	// Specify entry files
 	entry: {
 		main: './src/index.jsx',
@@ -16,18 +18,6 @@ module.exports = {
 		path: path.resolve(__dirname, '../dist'),
 	},
 
-	module: {
-		rules: [
-			// Compile .js and .jsx files with babel
-			{
-				test: /\.[jt]s(x)?$/,
-				resolve: { extensions: ['.js', '.jsx'] },
-				include: path.resolve(__dirname, '../src'),
-				use: ['thread-loader', 'babel-loader'],
-			},
-		],
-	},
-
 	// Create global bindings for common paths
 	resolve: {
 		symlinks: false,
@@ -37,6 +27,7 @@ module.exports = {
 			Components: path.resolve(__dirname, '../src/Components/'),
 			Pages: path.resolve(__dirname, '../src/Pages/'),
 			Theme: path.resolve(__dirname, '../src/Theme'),
+			Utils: path.resolve(__dirname, '../src/Utils'),
 		},
 	},
 
