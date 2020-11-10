@@ -37,7 +37,7 @@ class Room(models.Model):
             appliance = self.appliances.get(
                 polymorphic_ctype__model=topic[0], appliance_id=topic[1]
             )
-        except Exception as e:
+        except Exception:
             logger.warning(f"No appliance '{topic[0]}' with id {topic[1]}")
             return
 

@@ -15,7 +15,7 @@ for app in settings.INSTALLED_APPS:
             module = importlib.import_module(f"{app}.graphql")  # type: ignore
             APPLIANCES[module.model] = module.type  # type: ignore
             logger.success(f"Loaded appliance {app}")
-        except Exception as e:
+        except Exception:
             pass
 
 

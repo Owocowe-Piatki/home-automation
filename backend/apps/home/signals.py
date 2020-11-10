@@ -13,7 +13,7 @@ def mqtt_callback(sender, signal, topic, payload, **kwargs):
 
     try:
         room = Room.objects.get(code_name=topic[0])
-    except Exception as e:
+    except Exception:
         logger.warning(f"No room with codename {topic[0]}")
         return
 
