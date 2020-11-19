@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { ThemeContext } from 'Theme/index';
 import { format, subDays } from 'date-fns';
 
-import { ResponsiveContainer, LineChart, Line, Tooltip, YAxis } from 'recharts';
+import { ResponsiveContainer, LineChart, Line, Tooltip, YAxis, XAxis } from 'recharts';
 
 const SensorWrapper = styled.div`
 	display: flex;
@@ -27,9 +27,17 @@ const ChartContainer = styled(ResponsiveContainer)`
 
 const Sensor = ({ sensor }) => {
 	const { theme } = useContext(ThemeContext);
+
+	const timeNow = new Date();
+	const time24hago = subDays(timeNow, 1);
+
 	const history = sensor.history
-		.map((h) => ({ time: new Date(h.readTime), temp: h.value }))
-		.filter((h) => h.time > subDays(new Date(), 1));
+		.filter((h) => +new Date(h.readTime) > subDays(new Date(), 1))
+		.map((h) => ({
+			timeVal: +new Date(h.readTime),
+			time: format(new Date(h.readTime), 'yyyy-MM-dd HH:mm'),
+			temp: h.value,
+		}));
 
 	return (
 		<SensorWrapper>
@@ -41,7 +49,6 @@ const Sensor = ({ sensor }) => {
 					<Line
 						type="monotone"
 						dataKey="temp"
-						alignmentBaseline=""
 						unit="°C"
 						dot={false}
 						strokeWidth={3}
@@ -49,10 +56,17 @@ const Sensor = ({ sensor }) => {
 					/>
 
 					<YAxis domain={['dataMin', 'dataMax']} hide={true} />
+					<XAxis
+						dataKey="timeVal"
+						domain={[+time24hago, +timeNow]}
+						hide={true}
+						type="number"
+						interval={360000}
+					/>
 
 					<Tooltip
 						cursor={false}
-						labelFormatter={(label) => format(history[label].time, 'yyyy-MM-dd HH:mm')}
+						labelFormatter={(label) => format(new Date(label), 'HH:mm:ss')}
 						contentStyle={{
 							display: 'flex',
 							flexDirection: 'column',
