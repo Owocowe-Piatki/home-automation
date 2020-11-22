@@ -26,11 +26,11 @@ class SetRoller(graphene.Mutation):
         state = graphene.Boolean()
 
     ok = graphene.Boolean()
-    
+
     def mutate(root, info, id, state):
         roller = Roller.objects.get(id=id)
         payload = "open" if state else "close"
-        
+
         mqtt_publish.send(__name__, topic=roller.mqtt_topic, payload=payload)
         return SetRoller(ok=True)
 
