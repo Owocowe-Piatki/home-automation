@@ -1,5 +1,4 @@
 import json
-import time
 
 from django.core.serializers import serialize
 from graphene_subscriptions.events import CREATED, UPDATED, ModelSubscriptionEvent
