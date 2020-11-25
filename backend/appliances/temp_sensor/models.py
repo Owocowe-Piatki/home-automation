@@ -1,6 +1,7 @@
 import logging
 
 from django.db import models
+from django.utils import timezone
 
 from apps.home.models import Appliance
 
@@ -22,6 +23,9 @@ class TempHistory(models.Model):
 
 class TempSensor(Appliance):
     last_read = models.FloatField("last read", null=True)
+    last_read_time = models.DateTimeField("last read time", null=True)
+
+    temp_tolerance = models.FloatField("change tolerance", default=0.25)
 
     class Meta:
         verbose_name = "Temperature Sensor"
@@ -32,6 +36,7 @@ class TempSensor(Appliance):
 
     def save_reading(self, new_temp):
         self.last_read = new_temp
+        self.last_read_time = timezone.now()
         self.save()
 
         TempHistory.objects.create(value=new_temp, sensor=self)
@@ -44,10 +49,10 @@ class TempSensor(Appliance):
         """
 
         try:
-            new_temp = round(float(payload), 1)
+            new_temp = float(payload)
         except Exception:
             logger.warning(f"'{payload}' is an invalid temperature value!")
             return
 
-        if new_temp != self.last_read:
+        if abs(new_temp - self.last_read) > self.temp_tolerance:
             self.save_reading(new_temp)
