@@ -18,5 +18,5 @@ class TempSensorAdmin(ApplianceChildAdmin):
 
     def get_readonly_fields(self, request, obj):
         if obj:
-            return ("last_read", 'last_read_time')
+            return ("last_read", "last_read_time")
         return ()

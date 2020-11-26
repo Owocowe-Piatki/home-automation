@@ -1,4 +1,3 @@
-import time
 from datetime import timedelta
 
 import graphene
@@ -7,7 +6,6 @@ from graphene_django import DjangoObjectType
 
 from apps.home.graphql.interfaces import ApplianceInterface
 
-from ..models import TempHistory as TempHistoryModel
 from ..models import TempSensor as TempSensorModel
 
 group_time = timedelta(minutes=2)
