@@ -82,6 +82,7 @@ INSTALLED_APPS = [
     "appliances.lamp",
     "appliances.roller",
     "appliances.temp_sensor",
+    "appliances.socket",
     "apps.mqtt",  # has to be last
 ]
 
