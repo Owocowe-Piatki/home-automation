@@ -268,13 +268,8 @@ CELERY_TASK_TIME_LIMIT = 30 * 60
 CELERY_CACHE_BACKEND = "default"
 CELERY_RESULT_BACKEND = "django-db"
 
-# Celery will not work unless you choose Redis as cache
-if CACHE_TYPE == "locmem":
-    CELERY_BROKER_URL = "memory://"
-elif CACHE_TYPE == "redis":
-    CELERY_BROKER_URL = REDIS_URL
-else:
-    raise Exception("No cache backend specified")
+# Celery will not work unless you have Redis server
+CELERY_BROKER_URL = REDIS_URL
 
 # Cache config
 
