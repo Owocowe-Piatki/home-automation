@@ -378,6 +378,14 @@ python-versions = ">=3.5"
 Django = ">=2.2"
 
 [[package]]
+name = "django-fsm"
+version = "2.7.1"
+description = "Django friendly finite state machine support."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "django-polymorphic"
 version = "3.0.0"
 description = "Seamless polymorphic inheritance for Django models"
@@ -1091,7 +1099,7 @@ setuptools = "*"
 [metadata]
 lock-version = "1.0"
 python-versions = "^3.8"
-content-hash = "cec3f84da7cb200262a91a4dc73947fa9a40ae4c5f1860a6e24d5ee3781ad3ae"
+content-hash = "944cad986ee59ac54fab47c4c69c7053f4b891fbb2fc9dfd2fd46123e4f3dfec"
 
 [metadata.files]
 amqp = [
@@ -1243,6 +1251,10 @@ django-celery-results = [
 django-filter = [
     {file = "django-filter-2.4.0.tar.gz", hash = "sha256:84e9d5bb93f237e451db814ed422a3a625751cbc9968b484ecc74964a8696b06"},
     {file = "django_filter-2.4.0-py3-none-any.whl", hash = "sha256:e00d32cebdb3d54273c48f4f878f898dced8d5dfaad009438fe61ebdf535ace1"},
+]
+django-fsm = [
+    {file = "django-fsm-2.7.1.tar.gz", hash = "sha256:219b204777a932720d8583cb1f34713bd08b4713e1beb39ab2e674810e21d5e9"},
+    {file = "django_fsm-2.7.1-py2.py3-none-any.whl", hash = "sha256:c96a844853de0f5dc67791b64beb367b5d56f992dff7c00f9b88c483e09f15ec"},
 ]
 django-polymorphic = [
     {file = "django-polymorphic-3.0.0.tar.gz", hash = "sha256:9d886f19f031d26bb1391c055ed9be06fb226a04a4cec1842b372c58873b3caa"},
