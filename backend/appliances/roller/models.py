@@ -17,21 +17,21 @@ class Roller(Appliance):
     def __str__(self):
         return f"<Roller {self.mqtt_topic}>"
 
-    @transition(field=state, source="closed", target="openRequest")
+    @transition(field=state, source="closed", target="requestOpen")
     def open(self):
-        pass
+        return
 
-    @transition(field=state, source="openRequest", target="opened")
+    @transition(field=state, source="requestOpen", target="opened")
     def opened(self):
-        pass
+        return
 
-    @transition(field=state, source="opened", target="closeRequest")
+    @transition(field=state, source="opened", target="requestClose")
     def close(self):
-        pass
+        return
 
-    @transition(field=state, source="closeRequest", target="closed")
+    @transition(field=state, source="requestClose", target="closed")
     def closed(self):
-        pass
+        return
 
     def mqtt_message(self, topic, payload):
         """

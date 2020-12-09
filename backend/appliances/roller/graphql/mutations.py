@@ -1,4 +1,5 @@
 import graphene
+from django_fsm import can_proceed
 
 from apps.mqtt.signals import mqtt_publish
 
@@ -13,15 +14,11 @@ class ToggleRoller(graphene.Mutation):
 
     def mutate(root, info, id):
         roller = Roller.objects.get(id=id)
-        possible_action = next(roller.get_available_state_transitions())
 
-        if possible_action.name not in ("open", "close"):
-            return ToggleRoller(ok=False)
-
-        if roller.state == "opened":
-            payload = "close"
-        elif roller.state == "closed":
+        if can_proceed(roller.open):
             payload = "open"
+        elif can_proceed(roller.close):
+            payload = "close"
         else:
             return ToggleRoller(ok=False)
 
@@ -38,11 +35,10 @@ class SetRoller(graphene.Mutation):
 
     def mutate(root, info, id, state):
         roller = Roller.objects.get(id=id)
-        possible_action = next(roller.get_available_state_transitions())
 
         payload = "open" if state else "close"
 
-        if possible_action.name != payload:
+        if not can_proceed(roller.open if state else roller.close):
             return SetRoller(ok=False)
 
         mqtt_publish.send(__name__, topic=roller.mqtt_topic, payload=payload)
@@ -62,9 +58,7 @@ class BatchSetRoller(graphene.Mutation):
         payload = "open" if state else "close"
 
         for roller in rollers:
-            possible_action = next(roller.get_available_state_transitions())
-
-            if possible_action.name == payload:
+            if can_proceed(roller.open if state else roller.close):
                 mqtt_publish.send(__name__, topic=roller.mqtt_topic, payload=payload)
 
         return BatchSetRoller(ok=True)
