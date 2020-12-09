@@ -36,7 +36,7 @@ class SetLamp(graphene.Mutation):
     def mutate(root, info, id, state):
         lamp = Lamp.objects.get(id=id)
 
-        if not can_proceed(lamp.on if state == True else lamp.off):
+        if not can_proceed(lamp.on if state else lamp.off):
             return SetLamp(ok=False)
 
         mqtt_publish.send(__name__, topic=lamp.mqtt_topic, payload="on" if state else "off")
@@ -54,7 +54,7 @@ class BatchSetLamp(graphene.Mutation):
         lamps = Lamp.objects.filter(id__in=id_list)
 
         for lamp in lamps:
-            if can_proceed(lamp.on if state == True else lamp.off):
+            if can_proceed(lamp.on if state else lamp.off):
                 mqtt_publish.send(__name__, topic=lamp.mqtt_topic, payload="on" if state else "off")
 
         return BatchSetLamp(ok=True)

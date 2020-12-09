@@ -36,7 +36,7 @@ class SetSocket(graphene.Mutation):
     def mutate(root, info, id, state):
         socket = Socket.objects.get(id=id)
 
-        if not can_proceed(socket.on if state == True else socket.off):
+        if not can_proceed(socket.on if state else socket.off):
             return SetSocket(ok=False)
 
         mqtt_publish.send(__name__, topic=socket.mqtt_topic, payload="on" if state else "off")
@@ -54,7 +54,9 @@ class BatchSetSocket(graphene.Mutation):
         sockets = Socket.objects.filter(id__in=id_list)
 
         for socket in sockets:
-            if can_proceed(socket.on if state == True else socket.off):
-                mqtt_publish.send(__name__, topic=socket.mqtt_topic, payload="on" if state else "off")
+            if can_proceed(socket.on if state else socket.off):
+                mqtt_publish.send(
+                    __name__, topic=socket.mqtt_topic, payload="on" if state else "off"
+                )
 
         return BatchSetSocket(ok=True)

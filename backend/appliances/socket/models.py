@@ -1,6 +1,5 @@
 import logging
 
-from django.db import models
 from django_fsm import FSMField, can_proceed, transition
 
 from apps.home.models import Appliance
