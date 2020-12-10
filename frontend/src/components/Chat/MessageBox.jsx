@@ -29,7 +29,7 @@ const MessageWrapper = styled.div`
 const Message = ({ msg }) => {
 	const timestamp = isToday(msg.timestamp)
 		? format(msg.timestamp, 'HH:mm:ss')
-		: format(msg.timestamp, 'YYYY-MM-DD HH:mm:ss');
+		: format(msg.timestamp, 'yyyy-MM-dd HH:mm:ss');
 
 	return (
 		<MessageWrapper>
