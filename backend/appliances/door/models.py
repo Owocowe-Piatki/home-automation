@@ -1,4 +1,5 @@
 import logging
+
 from django.db import models
 
 from apps.home.models import Appliance
@@ -26,7 +27,7 @@ class Door(Appliance):
             return
 
         self.state = payload in ["opened", "1", "true"]
-        
+
         self.save()
 
         logger.info(f"Door {self.mqtt_topic}: {self.state}")
