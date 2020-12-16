@@ -1,8 +1,8 @@
 from django import template
 
-register = template.Library()
-
 from ..loader import get_manifest, get_path
+
+register = template.Library()
 
 
 @register.tag("webpack_manifest")
