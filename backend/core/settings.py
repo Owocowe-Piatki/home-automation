@@ -263,7 +263,7 @@ else:
 
 # Webpack manifest config
 if os.getenv("RUN_MAIN"):
-    WEBPACK_MANIFEST_URL = "http://localhost:5000/webpack-manifest.json"
+    WEBPACK_MANIFEST_URL = "http://localhost:5000/static/webpack-manifest.json"
     WEBPACK_MANIFEST_CACHE = False
 else:
     WEBPACK_MANIFEST_PATH = BASE_DIR / STATIC_ROOT / "webpack-manifest.json"

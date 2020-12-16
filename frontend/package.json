@@ -11,8 +11,8 @@
 	],
 	"license": "GPL-3.0",
 	"scripts": {
-		"dev": "webpack-dev-server --host 0.0.0.0 --config webpack/dev.js",
-		"build": "webpack --inline --progress --config webpack/dist.js",
+		"dev": "webpack serve --host 0.0.0.0 --config webpack/dev.js",
+		"build": "webpack --progress --config webpack/dist.js",
 		"test": "jest --passWithNoTests",
 		"prettier": "prettier './src/**/*.(js|jsx)' --check",
 		"prettier:fix": "prettier './src/**/*.(js|jsx)' --write",
@@ -77,9 +77,9 @@
 		"terser-webpack-plugin": "^5.0.3",
 		"thread-loader": "^3.0.1",
 		"webpack": "^5.10.3",
-		"webpack-bundle-tracker": "0.4.3",
 		"webpack-cli": "^4.2.0",
 		"webpack-dev-server": "^3.11.0",
+		"webpack-manifest-plugin": "^3.0.0",
 		"webpack-merge": "^5.7.2",
 		"workbox-webpack-plugin": "^6.0.2"
 	},
