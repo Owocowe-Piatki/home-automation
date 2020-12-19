@@ -10,6 +10,7 @@ const TempSensors = lazy(() => import(/* webpackChunkName: 'temp-sensors'*/ 'Pag
 const Dashboard = lazy(() => import(/* webpackChunkName: 'dashboard' */ 'Pages/Dashboard'));
 const Profile = lazy(() => import(/* webpackChunkName: 'profile' */ 'Pages/Profile'));
 const Rollers = lazy(() => import(/* webpackChunkName: 'rollers' */ 'Pages/Rollers'));
+const Sockets = lazy(() => import(/* webpackChunkName: 'sockets' */ 'Pages/Sockets'));
 const NotFound = lazy(() => import(/* webpackChunkName: 'notfound' */ 'Pages/NotFound'));
 
 const PageWrapper = styled.div`
@@ -55,6 +56,7 @@ const Routing = () => {
 						<Route path="/lamps" element={<Lamps />} />
 						<Route path="/temp-sensors" element={<TempSensors />} />
 						<Route path="/rollers" element={<Rollers />} />
+						<Route path="/sockets" element={<Sockets />} />
 						<Route path="/*" element={<NotFound />} />
 					</Routes>
 				</Suspense>
