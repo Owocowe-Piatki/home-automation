@@ -12,7 +12,7 @@ const Profile = lazy(() => import(/* webpackChunkName: 'profile' */ 'Pages/Profi
 const Rollers = lazy(() => import(/* webpackChunkName: 'rollers' */ 'Pages/Rollers'));
 const Sockets = lazy(() => import(/* webpackChunkName: 'sockets' */ 'Pages/Sockets'));
 const DoorsAndWindows = lazy(() =>
-	import(/* webpackChunkName: 'sockets' */ 'Pages/DoorsAndWindows')
+	import(/* webpackChunkName: 'doorsandwindows' */ 'Pages/DoorsAndWindows')
 );
 const NotFound = lazy(() => import(/* webpackChunkName: 'notfound' */ 'Pages/NotFound'));
 
