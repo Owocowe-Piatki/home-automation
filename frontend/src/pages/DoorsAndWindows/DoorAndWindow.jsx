@@ -28,7 +28,7 @@ const Door = styled(MdcDoor)`
 		fill: ${(p) => {
 			switch (p.state) {
 				case true:
-					return 'hsl(213, 89%, 53%)';
+					return 'hsl(0, 61%, 50%)';
 				case false:
 					return (p) => p.theme.text.secondary;
 			}

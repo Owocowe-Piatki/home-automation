@@ -24,6 +24,7 @@ export const GET_ROOM_DOORSANDWINDOWS = gql`
 export const GET_DOORSANDWINDOWS = gql`
 	query DoorsAndWindows {
 		doors {
+			id
 			name
 			room {
 				id
@@ -31,6 +32,7 @@ export const GET_DOORSANDWINDOWS = gql`
 			state
 		}
 		windows {
+			id
 			name
 			room {
 				id

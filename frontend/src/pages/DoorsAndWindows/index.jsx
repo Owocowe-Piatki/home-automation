@@ -39,10 +39,6 @@ const DoorsAndWindows = () => {
 		subscribeToMore({
 			document: DOORS_SUB,
 		});
-	}, [refetch, subscribeToMore]);
-
-	useEffect(() => {
-		refetch();
 		subscribeToMore({
 			document: WINDOWS_SUB,
 		});
