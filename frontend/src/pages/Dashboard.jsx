@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { format } from 'date-fns';
 import { GET_LAMPS, LAMP_SUB } from 'Utils/queries/lamps';
+import { GET_DOORSANDWINDOWS } from 'Utils/queries/doorsAndWindows';
 import { Box, BoxHeader, BoxContent, PageContainer } from 'Theme/Components';
 
 const DashGrid = styled.div`
@@ -39,6 +40,30 @@ const boxVariants = {
 			type: 'spring',
 		},
 	},
+};
+
+const DoorsAndWindowsBox = () => {
+	const { loading, error, data } = useQuery(GET_DOORSANDWINDOWS);
+
+	if (loading) return null;
+	if (error) return null;
+
+	const openedDoorsAndwindows = data.doors
+		.filter((door) => door.state)
+		.concat(data.windows.filter((window) => window.state));
+
+	if (openedDoorsAndwindows.length == 0) return null;
+
+	return (
+		<Box variant="warning" variants={boxVariants}>
+			<BoxHeader>Opened doors and windows</BoxHeader>
+			<BoxContent>
+				{openedDoorsAndwindows.map((i) => (
+					<div key={i.id}>{i.name}</div>
+				))}
+			</BoxContent>
+		</Box>
+	);
 };
 
 const LampBox = () => {
@@ -103,6 +128,7 @@ const Dashboard = () => {
 			<DashGrid>
 				<DateAndTimeBox />
 				<LampBox />
+				<DoorsAndWindowsBox />
 			</DashGrid>
 		</PageContainer>
 	);
