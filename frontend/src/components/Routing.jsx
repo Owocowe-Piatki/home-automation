@@ -5,6 +5,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import styled from 'styled-components';
 import { PageLoading, Error, Button } from 'Theme/Components';
 
+const Rooms = lazy(() => import(/* webpackChunkName: 'rooms' */ 'Pages/Rooms/'));
 const Lamps = lazy(() => import(/* webpackChunkName: 'lamps' */ 'Pages/Lamps/'));
 const TempSensors = lazy(() => import(/* webpackChunkName: 'temp-sensors'*/ 'Pages/TempSensors/'));
 const Dashboard = lazy(() => import(/* webpackChunkName: 'dashboard' */ 'Pages/Dashboard'));
@@ -61,6 +62,7 @@ const Routing = () => {
 						<Route path="/rollers" element={<Rollers />} />
 						<Route path="/sockets" element={<Sockets />} />
 						<Route path="/doorsandwindows" element={<DoorsAndWindows />} />
+						<Route path="/rooms" element={<Rooms />} />
 						<Route path="/*" element={<NotFound />} />
 					</Routes>
 				</Suspense>

@@ -128,6 +128,10 @@ const Sidebar = () => {
 						<RiDashboardFill />
 						<div>Dashboard</div>
 					</AnimatedPageLink>
+					<AnimatedPageLink to="/rooms">
+						<AiFillBulb />
+						<div>All appliances</div>
+					</AnimatedPageLink>
 					<AnimatedPageLink to="/lamps">
 						<AiFillBulb />
 						<div>Lamps</div>
